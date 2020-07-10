@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 class Tiles extends Component {
   render() {
     return (
-      <div>
-            <div class="board">board</div>
-            <div class="board">board</div>
-            <div class="board">board</div>
-            <div class="board">board</div>
-            <div class="board">board</div>
-            <div class="board">board</div>
-            <div class="board">board</div>
+      <div class="board" >
+          <div class="tiles">tiles</div>
+          <div class="tiles">tiles</div>
+          <div class="tiles">tiles</div>
+          <div class="tiles">tiles</div>
+          <div class="tiles">tiles</div>
+          <div class="tiles">tiles</div>
+          <div class="tiles">tiles</div>
       </div>
     )
   }

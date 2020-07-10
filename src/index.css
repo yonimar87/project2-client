@@ -1,3 +1,27 @@
+<<<<<<< HEAD
 .board {
  border: 1px solid red;
+=======
+* {
+  box-sizing: border-box;
+}
+
+.board {
+  position: absolute;
+  border: 1px solid red;
+  min-height: 500px;
+  min-width: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  top: 50%;
+  left: 50%;
+}
+
+.tiles {
+  position: relative;
+  border: 1px solid red;
+  display: inline;
+  background-color: grey;
+  padding: 20px;
+>>>>>>> 53418b65303ba84395c0f1f31ef59b58db26e71b
 }

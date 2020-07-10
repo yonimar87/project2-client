@@ -4,6 +4,8 @@ import Tiles from './Tiles'
 import Buttons from './Buttons'
 import Users from './Users'
 import Shotglass from './Shotglass'
+import Counter from './Counter'
+import Characters from './Characters'
 
 class App extends Component {
   constructor() {
@@ -30,6 +32,9 @@ class App extends Component {
         <Buttons />
         <Users />
         <Shotglass />
+        <Counter />
+        <Counter />
+        <Characters />
       </div>
     )
   }
