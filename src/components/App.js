@@ -32,6 +32,7 @@ class App extends Component {
         <Users />
         <Shotglass />
         <Counter />
+        <Counter />
       </div>
     )
   }
