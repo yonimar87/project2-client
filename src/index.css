@@ -1,5 +1,22 @@
-td {
-  border: solid 2px black;
-  font-size: 250px;
+* {
+  box-sizing: border-box;
+}
+
+.board {
+  position: absolute;
+  border: 1px solid red;
+  min-height: 500px;
+  min-width: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  top: 50%;
+  left: 50%;
+}
+
+.tiles {
+  position: relative;
+  border: 1px solid red;
   display: inline;
+  background-color: grey;
+  padding: 20px;
 }
