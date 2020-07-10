@@ -25,13 +25,13 @@ class App extends Component {
 
   render() {
     return (
-    <div>
-    <Tiles />
-    <Buttons />
-    <Users />
-    <Shotglass />
-    </div>
-  )
+      <div>
+        <Tiles />
+        <Buttons />
+        <Users />
+        <Shotglass />
+      </div>
+    )
   }
 }
 

@@ -1,13 +1,9 @@
-import React, {Component} from 'react'
-import app from 'firebase/app'
+import React, { Component } from 'react'
 
 class Shotglass extends Component {
   render() {
-    return (
-    <div>
-      ShotGLASSSSSSSS *Glup*
-    </div>
-  )}
+    return <div>ShotGLASSSSSSSS *Glup*</div>
+  }
 }
 
 export default Shotglass

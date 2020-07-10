@@ -1,14 +1,9 @@
-import React, {Component} from 'react'
-import app from 'firebase/app'
+import React, { Component } from 'react'
 
-class Users extends React.Component {
-
+class Users extends Component {
   render() {
-    return (
-    <div>
-      USERS ARE CRAZY
-    </div>
-  )}
+    return <div>USERS ARE CRAZY</div>
+  }
 }
 
 export default Users

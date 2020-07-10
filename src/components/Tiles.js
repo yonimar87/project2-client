@@ -1,34 +1,20 @@
-import React, {Component} from 'react'
-import app from 'firebase/app'
-import Square from './Square'
+import React, { Component } from 'react'
 
 class Tiles extends Component {
-
-  renderSquare(i) {
-    return <Tiles />;
-  }
   render() {
-    const status = 'Next player: X';
     return (
       <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        <tbody>
+          <tr>
+            <td class="square">&nbsp;</td>
+            <td class="square">&nbsp;</td>
+            <td class="square">&nbsp;</td>
+            <td class="square">&nbsp;</td>
+            <td class="square">&nbsp;</td>
+          </tr>
+        </tbody>
       </div>
-    );
+    )
   }
 }
 
