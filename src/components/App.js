@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import app from 'firebase/app'
+import Tiles from './Tiles'
+import Buttons from './Buttons'
+import Users from './Users'
+import Shotglass from './Shotglass'
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super()
     this.state = {
@@ -20,7 +24,14 @@ class App extends React.Component {
   }
 
   render() {
-    return <div className="App">FireBase is ass</div>
+    return (
+    <div>
+    <Tiles />
+    <Buttons />
+    <Users />
+    <Shotglass />
+    </div>
+  )
   }
 }
 
