@@ -6,6 +6,8 @@ import Users from './Users'
 import Shotglass from './Shotglass'
 import Counter from './Counter'
 import Characters from './Characters'
+import Tournament from './Tournament'
+import Newsfeed from './Newsfeed'
 
 class App extends Component {
   constructor() {
@@ -35,6 +37,8 @@ class App extends Component {
         <Counter />
         <Counter />
         <Characters />
+        <Tournament />
+        <Newsfeed />
       </div>
     )
   }
