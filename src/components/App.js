@@ -11,6 +11,8 @@ import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
 import FaceEmotion from './WebcamComponent'
+import Coinflip from './Coinflip'
+import { Button } from 'reactstrap'
 // import Application from './UserAuth/Application'
 // import Newsfeed from './Newsfeed'
 
@@ -49,7 +51,6 @@ class App extends Component {
   }
 
 
-
   render() {
     return (
       <div className="App">
@@ -58,13 +59,13 @@ class App extends Component {
         <Tiles />
         <Buttons />
         <Users />
-        <Shotglass />
         <Counter />
         <Counter />
         <Characters />
         <Tournament />
-        <FaceEmotion />
-        {/*<Newsfeed />*/}
+        <Coinflip />
+        {/*<FaceEmotion />
+        <Newsfeed />*/}
       </div>
     )
   }
