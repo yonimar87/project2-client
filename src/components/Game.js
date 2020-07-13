@@ -13,41 +13,46 @@ class Game extends Component {
     };
     this.coinToss = this.coinToss.bind(this);
     this.buildArray = this.buildArray.bind(this);
-    // this.buildArray()
+    this.generateTiles = this.generateTiles.bind(this);
   }
 
+  // componentDidUpdate(prevProps, prevState){
+  //   if(prevState.turnCounter !== this.state.turnCounter){
+  //     this.buildArray()
+  //   }
+  // }
+
   coinToss() {
-      if (Math.random() < 0.5) {
-        this.setState({ result: "heads" });
-        console.log("heads");
-      } else {
-        this.setState({ result: "tails" });
-        console.log("tails");
-      }
+    if (Math.random() < 0.5) {
+      this.setState({ result: "heads" }, this.buildArray);
+      console.log("heads");
+    } else {
+      this.setState({ result: "tails" }, this.buildArray);
+      console.log("tails");
+    }
+    console.log(this.state.result)
   }
 
   buildArray() {
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-    this.setState({marker: this.state.marker+1})
-  } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
-    this.setState({marker: this.state.marker-1})
-  } else {
-    this.setState({turnCounter: this.state.turnCounter + 1})
-    return "Next Turn"
-  }
-
-  const arrayTiles = [];
-  for (let i = 0; i < this.state.tilesSize; i++) {
-    if (i === this.state.marker) {
-      arrayTiles.push(true);
-    } else {
-      arrayTiles.push(false);
+      this.setState({marker: this.state.marker++}, this.generateTiles)
+    } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
+      this.setState({marker: this.state.marker--}, this.generateTiles)
     }
   }
 
-  this.setState({tiles: arrayTiles})
-  console.log(this.state.tiles)
-    // [false, false,false ,true,false,false, false]
+  generateTiles() {
+    const arrayTiles = [];
+    for (let i = 0; i < this.state.tilesSize; i++) {
+      if (i === this.state.marker) {
+        arrayTiles.push(true);
+      } else {
+        arrayTiles.push(false);
+      }
+    }
+    console.log({arrayTiles});
+    this.setState({tiles: arrayTiles, turnCounter: this.state.turnCounter++})
+    console.log(this.state.tiles)
   }
 
   render() {
