@@ -27,10 +27,6 @@ button {
   height: 200px;
 }
 
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
 #coin {
   position: relative;
   margin: 0 auto;
@@ -53,27 +49,30 @@ button {
 .side-a {
   background-image: url(https://images-na.ssl-images-amazon.com/images/I/91VycU5MBcL._AC_UL320_SR318,320_.jpg);
   object-fit: fill;
-  color: white;
+  color: red;
   text-align: center;
 }
 .side-b {
-  background-color: url(https://www.ramint.gov.au/sites/default/files/2020/Corporate_website/large_2020-1-uncirculated_qantas_centenary_circ_rev.jpg);
-  color: white;
+  background-image: url(https://www.ramint.gov.au/sites/default/files/2020/Corporate_website/large_2020-1-uncirculated_qantas_centenary_circ_rev.jpg);
+  color: red;
   text-align: center;
 }
 #coin {
   transition: -webkit-transform 1s ease-in;
   -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 #coin div {
   position: absolute;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .side-a {
   z-index: 100;
 }
 .side-b {
   -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg)
 }
 #coin.heads {
   -webkit-animation: flipHeads 2s ease-out forwards;
@@ -87,7 +86,7 @@ button {
   -o-animation: flipTails 2s ease-out forwards;
   animation: flipTails 2s ease-out forwards;
 }
-@-webkit-keyframes flipHeads {
+@keyframes flipHeads {
   from {
     -webkit-transform: rotateY(0);
     -moz-transform: rotateY(0);
@@ -99,7 +98,7 @@ button {
     transform: rotateY(540deg);
   }
 }
-@-webkit-keyframes flipTails {
+@keyframes flipTails {
   from {
     -webkit-transform: rotateY(0);
     -moz-transform: rotateY(0);
