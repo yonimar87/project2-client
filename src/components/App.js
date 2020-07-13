@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import app from 'firebase/app'
 import fire from './config/firebase'
-import Login from './login'
+import Login from './Login/login'
 import Home from './home'
-import logo from "../images/bar.jpeg";
 
  // import FaceEmotion from './WebcamComponent'
 
@@ -58,7 +57,6 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.user ? (<Home/>) : (<Login/>)}
-        <Logo />
         {/*
         <Counter />
         <Counter />
@@ -76,13 +74,7 @@ class App extends Component {
   }
 }
 
-class Logo extends Component {
-  render() {
-    return <div>
-      <img id="logo" src={logo}/>
-    </div>
-  }
-}
+
 
 
 export default App

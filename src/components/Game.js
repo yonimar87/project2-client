@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-// import shotglass from "../images/shotglass3.png";
-const shotglass = "images/shotglass3.png"
+import shotglass3 from "../images/shotglass3.png";
+
 class Game extends Component {
   constructor(props){
     super(props)
@@ -127,7 +127,7 @@ class Coinflip extends React.Component {
 class Shotglass extends Component {
   render() {
     return <div>
-      <img id="shotglass" src={shotglass}/>
+      <img id="shotglass" src={shotglass3}/>
     </div>
   }
 }
