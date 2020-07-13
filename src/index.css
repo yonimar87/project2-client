@@ -10,10 +10,9 @@
   opacity: 1.0;
   object-fit: cover;
 }
-
 .board {
   position: absolute;
-  border: 5px solid #295d92;
+  border: 5px solid #295D92;
   min-height: 500px;
   min-width: 500px;
   margin-left: -250px;
@@ -21,12 +20,11 @@
   top: 50%;
   left: 50%;
 }
-
 .tiles {
   position: relative;
-  border: 2px solid #295d92;
+  border: 2px solid #295D92;
   display: inline;
-  background-color: #295d92;
+  background-color: #295D92;
   padding: 20px;
   border: 1px solid red;
   top: 75%;
@@ -35,18 +33,14 @@
   display: flex;
   justify-content: center
 }
-
-
 img,
 video,
 button {
   display: block;
 }
-
 #shotglass {
   height: 400px;
 }
-
 #coin {
   position: relative;
   margin: 0 auto;
@@ -130,7 +124,6 @@ button {
     transform: rotateY(720deg);
   }
 }
-
 h1 , p {
-  color: #295d92;
+  color: #295D92;
 }

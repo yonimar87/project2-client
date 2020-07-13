@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import shotglass from "../images/shotglass3.png";
-
+// import shotglass from "../images/shotglass3.png";
+const shotglass = "images/shotglass3.png"
 class Game extends Component {
   constructor(props){
     super(props)
