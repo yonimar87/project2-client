@@ -3,13 +3,19 @@ import app from 'firebase/app'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
+import logo from "../images/logo.png";
+
+ // import FaceEmotion from './WebcamComponent'
+
 // import FaceEmotion from './WebcamComponent'
 //import Tournament from './Tournament'
+
 // import { Button } from 'reactstrap'
 // import Application from './UserAuth/Application'
 // import Newsfeed from './Newsfeed'
 // import Buttons from './Buttons'
 // import Tiles from './Tiles'
+
 
 
 
@@ -52,6 +58,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.user ? (<Home/>) : (<Login/>)}
+        <Logo />
         {/*
         <Counter />
         <Counter />
@@ -66,6 +73,14 @@ class App extends Component {
         */}
       </div>
     )
+  }
+}
+
+class Logo extends Component {
+  render() {
+    return <div>
+      <img id="logo" src={logo}/>
+    </div>
   }
 }
 
