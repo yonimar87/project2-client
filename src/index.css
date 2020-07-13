@@ -1,4 +1,4 @@
-#logo {
+#background {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -7,13 +7,13 @@
   top: 0;
   left: 0;
   z-index: -5;
-  opacity: 1.0;
+  opacity: 1.4;
   object-fit: cover;
 }
 
 .board {
   position: absolute;
-  border: 5px solid #295d92;
+  border: 5px solid #EEE9E5;
   min-height: 500px;
   min-width: 500px;
   margin-left: -250px;
@@ -24,11 +24,10 @@
 
 .tiles {
   position: relative;
-  border: 2px solid #295d92;
+  border: 2px solid #EEE9E5;
   display: inline;
-  background-color: #295d92;
+  background-color: #EEE9E5;
   padding: 20px;
-  border: 1px solid red;
   top: 75%;
   width: 50%;
   left: 25%;
@@ -131,6 +130,6 @@ button {
   }
 }
 
-h1 , p {
-  color: #295d92;
+h1 , p , h2 , h3 , h4 , h5 , h6 {
+  color: #EEE9E5;
 }
