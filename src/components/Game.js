@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import shotglass from "../images/shotglass.jpg";
 
-class Tiles extends Component {
+class Game extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -22,6 +22,9 @@ class Tiles extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Coinflip coinFlip={this.coinToss} outcome={this.state.result}/>
+        </div>
         <div class="board" >
           <div class="tiles" id="tile1">tiles</div>
           <div class="tiles" id="tile2">tiles</div>
@@ -30,9 +33,6 @@ class Tiles extends Component {
           <div class="tiles" id="tile5">tiles</div>
           <div class="tiles" id="tile6">tiles</div>
           <div class="tiles" id="tile7">tiles</div>
-        </div>
-        <div>
-          <Coinflip coinFlip={this.coinToss} outcome={this.state.result}/>
         </div>
         <div>
           {this.state.result}
@@ -77,14 +77,10 @@ class Shotglass extends Component {
   }
 }
 
-export default Tiles
+export default Game
 
 {/*
 https://codepen.io/gaearon/pen/gWWZgR?editors=0010
-
-class Tile extends Component {
-
-}
 
 
 //Set value of a const to = URL
@@ -102,22 +98,3 @@ if  (heads) = true
     to the other side.
   }
 */}
-
-
-// const drinkUrl = url(../images/shotglass.jpg)
-// const market = 4
-//
-//   then in the state do an
-//   if  (heads) = true
-//     setvalue = false for the one im on // image disappears from current div.
-//      marker -1
-//     setState value = true
-//     tile to left tile to right
-//     else {
-//       setvalue = false for the one im on
-//       marker + 1
-//       setstate value = true
-//       to the other side.
-// flipResult(result) {
-//   this.setState({coinResult: this.props.result})
-//   console.log(flipResult)

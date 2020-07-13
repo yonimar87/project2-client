@@ -5,6 +5,7 @@
 
 .board {
   position: absolute;
+<<<<<<< HEAD
   border: 5px solid #295d92;
   min-height: 500px;
   min-width: 500px;
@@ -20,6 +21,21 @@
   display: inline;
   background-color: #295d92;
   padding: 20px;
+=======
+  border: 1px solid red;
+  top: 75%;
+  width: 50%;
+  left: 25%;
+  display: flex;
+  justify-content: center
+}
+
+.tiles {
+  /* position: relative; */
+  border: 1px solid red;
+  background-color: grey;
+  padding: 15%;
+>>>>>>> cd818a1ffa41aef4c29cdd3ab28912beebd1a5e3
 }
 
 img,

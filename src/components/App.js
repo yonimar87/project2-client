@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
 import app from 'firebase/app'
-import Tiles from './Tiles'
-import Buttons from './Buttons'
-import Users from './Users'
-import Counter from './Counter'
-import Characters from './Characters'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
@@ -17,6 +12,10 @@ import Home from './home'
 // import { Button } from 'reactstrap'
 // import Application from './UserAuth/Application'
 // import Newsfeed from './Newsfeed'
+// import Buttons from './Buttons'
+// import Tiles from './Tiles'
+
+
 
 
 class App extends Component {
@@ -57,20 +56,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/*<Application />*/}
         {this.state.user ? (<Home/>) : (<Login/>)}
-
-        <Buttons />
-        <Users />
+        {/*
         <Counter />
         <Counter />
         <Characters />
-        <Tiles />
-        {/*
+        <Application />
+        <Buttons />
         <Tournament />
         <Coinflip />
         <FaceEmotion />
         <Newsfeed />
+        <Tiles />
         */}
       </div>
     )
