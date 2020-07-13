@@ -5,12 +5,11 @@ import Buttons from './Buttons'
 import Users from './Users'
 import Counter from './Counter'
 import Characters from './Characters'
-import Tournament from './Tournament'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
 // import FaceEmotion from './WebcamComponent'
-import Coinflip from './Coinflip'
+//import Tournament from './Tournament'
 // import { Button } from 'reactstrap'
 // import Application from './UserAuth/Application'
 // import Newsfeed from './Newsfeed'
@@ -55,16 +54,19 @@ class App extends Component {
       <div className="App">
         {/*<Application />*/}
         {this.state.user ? (<Home/>) : (<Login/>)}
-        <Tiles />
+
         <Buttons />
         <Users />
         <Counter />
         <Counter />
         <Characters />
+        <Tiles />
+        {/*
         <Tournament />
         <Coinflip />
-        {/*<FaceEmotion />
-        <Newsfeed />*/}
+        <FaceEmotion />
+        <Newsfeed />
+        */}
       </div>
     )
   }
