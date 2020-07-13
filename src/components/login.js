@@ -1,6 +1,7 @@
 import React , { Component } from "react";
 import fire from "./config/firebase"
 
+
 class Login extends Component{
   constructor(props){
     super(props)
@@ -33,6 +34,8 @@ class Login extends Component{
       [e.target.name] : e.target.value
     })
   }
+
+
   render ()
   {
     return(
