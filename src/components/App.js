@@ -55,6 +55,7 @@ class App extends Component {
       <div className="App">
         {/*<Application />*/}
         {this.state.user ? (<Home/>) : (<Login/>)}
+        <Coinflip />
         <Tiles />
         <Buttons />
         <Users />
@@ -62,7 +63,6 @@ class App extends Component {
         <Counter />
         <Characters />
         <Tournament />
-        <Coinflip />
         {/*<FaceEmotion />
         <Newsfeed />*/}
       </div>
