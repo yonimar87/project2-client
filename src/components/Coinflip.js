@@ -5,7 +5,7 @@ constructor(props) {
    super(props);
    this.state = {
      result: "",
-     nader: "nader"
+     nader: "nader" //came with the code we found. What does it actually do?
    };
    this.coinToss = this.coinToss.bind(this);
  }
@@ -23,8 +23,8 @@ constructor(props) {
 
  render() {
    return (
-     <div className="App">
-       <div id="coin" className={this.state.result} key={+new Date()}>
+     <div>
+       <div id="coin" className={this.state.result}>
          <div class="side-a">
            <h2>TAIL</h2>
          </div>
