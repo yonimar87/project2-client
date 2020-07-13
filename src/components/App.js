@@ -3,20 +3,24 @@ import app from 'firebase/app'
 import Tiles from './Tiles'
 import Buttons from './Buttons'
 import Users from './Users'
-import Shotglass from './Shotglass'
 import Counter from './Counter'
 import Characters from './Characters'
-import Tournament from './Tournament'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
+<<<<<<< HEAD
  // import FaceEmotion from './WebcamComponent'
 import Coinflip from './Coinflip'
+=======
+// import FaceEmotion from './WebcamComponent'
+//import Tournament from './Tournament'
+>>>>>>> d04e52c6a314adeb999e26375c76f9116d432916
 // import { Button } from 'reactstrap'
 // import Application from './UserAuth/Application'
 // import Newsfeed from './Newsfeed'
 
 class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -50,22 +54,24 @@ class App extends Component {
     })
   }
 
-
   render() {
     return (
       <div className="App">
         {/*<Application />*/}
         {this.state.user ? (<Home/>) : (<Login/>)}
-        <Tiles />
+
         <Buttons />
         <Users />
         <Counter />
         <Counter />
         <Characters />
+        <Tiles />
+        {/*
         <Tournament />
         <Coinflip />
-        {/*<FaceEmotion />
-        <Newsfeed />*/}
+        <FaceEmotion />
+        <Newsfeed />
+        */}
       </div>
     )
   }
