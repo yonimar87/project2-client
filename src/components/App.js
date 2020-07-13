@@ -7,13 +7,21 @@ import Shotglass from './Shotglass'
 import Counter from './Counter'
 import Characters from './Characters'
 import Tournament from './Tournament'
-import Newsfeed from './Newsfeed'
+import fire from './config/firebase'
+import Login from './login'
+import Home from './home'
+ // import FaceEmotion from './WebcamComponent'
+import Coinflip from './Coinflip'
+// import { Button } from 'reactstrap'
+// import Application from './UserAuth/Application'
+// import Newsfeed from './Newsfeed'
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      data: {}
+      data: {},
+      user : {}
     }
   }
 
@@ -27,21 +35,41 @@ class App extends Component {
       })
   }
 
+  componentDidMount(){ //THIS IS FOR LOGIN
+    this.authListener();
+  }
+
+  authListener(){ //THIS IS FOR LOGIN
+    fire.auth().onAuthStateChanged((user)=>{
+      if(user){
+        this.setState({user})
+      }
+      else{
+        this.setState({user: null})
+      }
+    })
+  }
+
+
   render() {
     return (
-      <div>
+      <div className="App">
+        {/*<Application />*/}
+        {this.state.user ? (<Home/>) : (<Login/>)}
         <Tiles />
         <Buttons />
         <Users />
-        <Shotglass />
         <Counter />
         <Counter />
         <Characters />
         <Tournament />
-        <Newsfeed />
+        <Coinflip />
+        {/*<FaceEmotion />
+        <Newsfeed />*/}
       </div>
     )
   }
 }
+
 
 export default App
