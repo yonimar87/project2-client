@@ -6,9 +6,16 @@ class Game extends Component {
     super(props)
     this.state = {
       result: '',
+      turnCounter: 0,
+      tilesSize: 7,
+      marker: 3,
+      tiles: [] // [false, false,false,true,false,false, false]
     };
     this.coinToss = this.coinToss.bind(this);
+    this.buildArray = this.buildArray.bind(this);
+    // this.buildArray()
   }
+
   coinToss() {
       if (Math.random() < 0.5) {
         this.setState({ result: "heads" });
@@ -19,20 +26,38 @@ class Game extends Component {
       }
   }
 
+  buildArray() {
+    if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
+    this.setState({marker: this.state.marker+1})
+  } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
+    this.setState({marker: this.state.marker-1})
+  } else {
+    this.setState({turnCounter: this.state.turnCounter + 1})
+    return "Next Turn"
+  }
+
+  const arrayTiles = [];
+  for (let i = 0; i < this.state.tilesSize; i++) {
+    if (i === this.state.marker) {
+      arrayTiles.push(true);
+    } else {
+      arrayTiles.push(false);
+    }
+  }
+
+  this.setState({tiles: arrayTiles})
+  console.log(this.state.tiles)
+    // [false, false,false ,true,false,false, false]
+  }
+
   render() {
     return (
       <div>
         <div>
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result}/>
         </div>
-        <div class="board" >
-          <div class="tiles" id="tile1">tiles</div>
-          <div class="tiles" id="tile2">tiles</div>
-          <div class="tiles" id="tile3">tiles</div>
-          <div  id="tile4"> < Shotglass /> </div>
-          <div class="tiles" id="tile5">tiles</div>
-          <div class="tiles" id="tile6">tiles</div>
-          <div class="tiles" id="tile7">tiles</div>
+        <div class="board">
+        < TileSet tiles={this.state.tiles} />
         </div>
         <div>
           {this.state.result}
@@ -42,6 +67,31 @@ class Game extends Component {
   }
 }
 
+
+
+//------------child--------------------------------
+
+class TileSet extends Component {
+   constructor(props){
+   super(props)
+   this.state = {
+     tiles: this.props.tiles
+   }
+  }
+   render() {
+     return (
+       <div>
+          {this.state.tiles.map(tile => {
+            return !tile ?
+                <div class="tiles" id="tile_x">tiles</div>
+              :
+                <div id="tile4"> < Shotglass /> </div>
+              }
+          )}
+       </div>
+     )
+   }
+  }
 
 //------------child--------------------------------
 
