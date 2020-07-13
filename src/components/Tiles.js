@@ -6,13 +6,13 @@ class Tiles extends Component {
   render() {
     return (
       <div class="board" >
-          <div class="tiles" id="tile1">1</div>
-          <div class="tiles" id="tile2">2</div>
-          <div class="tiles" id="tile3">3</div>
+          <div class="tiles" id="tile1">tiles</div>
+          <div class="tiles" id="tile2">tiles</div>
+          <div class="tiles" id="tile3">tiles</div>
           <div  id="tile4"> < Shotglass /> </div>
-          <div class="tiles" id="tile5">5</div>
-          <div class="tiles" id="tile6">6</div>
-          <div class="tiles" id="tile7">7</div>
+          <div class="tiles" id="tile5">tiles</div>
+          <div class="tiles" id="tile6">tiles</div>
+          <div class="tiles" id="tile7">tiles</div>
       </div>
     )
   }
@@ -31,7 +31,7 @@ class Tile extends Component {
 const marker 4
 then in the state do an
 if  (heads) = true
-  setvalue = false for the one im on // image disappears from current div.
+  setvalue = false for the one im on
    marker -1
   setState value = true
   tile to left tile to right
