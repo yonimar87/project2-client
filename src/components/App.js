@@ -3,7 +3,6 @@ import app from 'firebase/app'
 import Tiles from './Tiles'
 import Buttons from './Buttons'
 import Users from './Users'
-import Shotglass from './Shotglass'
 import Counter from './Counter'
 import Characters from './Characters'
 import Tournament from './Tournament'
@@ -17,6 +16,7 @@ import Coinflip from './Coinflip'
 // import Newsfeed from './Newsfeed'
 
 class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -49,7 +49,6 @@ class App extends Component {
       }
     })
   }
-
 
   render() {
     return (
