@@ -1,6 +1,11 @@
+* {
+  background-color: #fffffe;
+}
+
+
 .board {
   position: absolute;
-  border: 1px solid red;
+  border: 5px solid #295d92;
   min-height: 500px;
   min-width: 500px;
   margin-left: -250px;
@@ -11,9 +16,9 @@
 
 .tiles {
   position: relative;
-  border: 1px solid red;
+  border: 2px solid #295d92;
   display: inline;
-  background-color: grey;
+  background-color: #295d92;
   padding: 20px;
 }
 
@@ -109,4 +114,8 @@ button {
     -moz-transform: rotateY(720deg);
     transform: rotateY(720deg);
   }
+}
+
+h1 , p {
+  color: #295d92;
 }

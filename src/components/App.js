@@ -8,16 +8,16 @@ import Characters from './Characters'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
-<<<<<<< HEAD
+
  // import FaceEmotion from './WebcamComponent'
-import Coinflip from './Coinflip'
-=======
+
 // import FaceEmotion from './WebcamComponent'
 //import Tournament from './Tournament'
->>>>>>> d04e52c6a314adeb999e26375c76f9116d432916
+
 // import { Button } from 'reactstrap'
 // import Application from './UserAuth/Application'
 // import Newsfeed from './Newsfeed'
+
 
 class App extends Component {
 
