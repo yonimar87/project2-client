@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import shotglass from "../images/shotglass3.png";
+import shotglass from "../images/shotglass.jpg";
 
 class Game extends Component {
   constructor(props){
