@@ -3,7 +3,7 @@ import app from 'firebase/app'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
-import logo from "../images/logo.png";
+import logo from "../images/bar.jpeg";
 
  // import FaceEmotion from './WebcamComponent'
 
