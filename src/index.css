@@ -1,3 +1,8 @@
+* {
+  font-family: 'Bangers', cursive;
+  font-size: 1em;
+}
+
 #background {
   width: 100vw;
   height: 100vh;
@@ -7,7 +12,7 @@
   top: 0;
   left: 0;
   z-index: -5;
-  opacity: 1.4;
+  opacity: 1;
   object-fit: cover;
 }
 .board {
@@ -30,7 +35,7 @@
   width: 50%;
   left: 25%;
   display: flex;
-  justify-content: center
+  flex-direction: row;
 }
 img,
 video,
@@ -38,7 +43,7 @@ button {
   display: block;
 }
 #shotglass {
-  height: 400px;
+  height: 300px;
 }
 #coin {
   position: relative;
@@ -69,6 +74,8 @@ button {
   background-image: url(https://www.ramint.gov.au/sites/default/files/2020/Corporate_website/large_2020-1-uncirculated_qantas_centenary_circ_rev.jpg);
   color: red;
   text-align: center;
+  height: 100%;
+  width: 100%;
 }
 #coin {
   transition: -webkit-transform 1s ease-in;
@@ -79,6 +86,7 @@ button {
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  border: 2px solid red;
 }
 .side-a {
   z-index: 100;
@@ -126,4 +134,20 @@ button {
 
 h1 , p , h2 , h3 , h4 , h5 , h6 {
   color: #EEE9E5;
+}
+
+.playerpoints {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 3em;
+}
+
+.playername {
+  font-size: 3em;
+}
+
+.pointstotal {
+  font-size: 0.9em;
+  padding: 10px;
 }

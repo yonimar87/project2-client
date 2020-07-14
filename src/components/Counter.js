@@ -23,9 +23,9 @@ loss = () => {
 
   render() {
     return (
-    <div>
-    <h1> Player {} </h1>
-    <p> Total Points: {this.state.count} </p>
+    <div className="playerpoints">
+    <h1 className="playername"> Player {} </h1>
+    <p className="pointstotal"> Total Points: {this.state.count} </p>
     <button onClick={this.win}> You Won </button>
     <button onClick={this.loss}> You Lost </button>
     </div>

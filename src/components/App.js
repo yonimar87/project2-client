@@ -3,7 +3,7 @@ import app from 'firebase/app'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
-import background from "../images/bar.jpeg";
+import background from "./images/bar.jpeg";
 
  // import FaceEmotion from './WebcamComponent'
 
@@ -15,8 +15,6 @@ import background from "../images/bar.jpeg";
 // import Newsfeed from './Newsfeed'
 // import Buttons from './Buttons'
 // import Tiles from './Tiles'
-
-
 
 
 class App extends Component {
