@@ -101,7 +101,7 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div id="tile_x">
+            <div class="tile_x">
               YEET
             </div>
           ) : (
