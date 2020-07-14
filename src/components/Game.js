@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import shotglass from './images/shotglass3.png'
-
 class Game extends Component {
   constructor(props) {
     super(props)
@@ -15,14 +14,11 @@ class Game extends Component {
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
   }
-
   // componentDidUpdate(prevProps, prevState){
   //   if(prevState.turnCounter !== this.state.turnCounter){
   //     this.buildArray()
   //   }
   // }
-
-
   coinToss() {
     let tossOutcome = '';
     if (Math.random() < 0.5) {
@@ -37,7 +33,6 @@ class Game extends Component {
     this.setState({result: tossOutcome}, this.buildArray);
     //console.log(this.state.result)
   }
-
   buildArray() {
     let tCounter = this.state.turnCounter;
     let tMarker = this.state.marker;
@@ -53,9 +48,7 @@ class Game extends Component {
       //this.setState({marker: this.state.marker--}, this.generateTiles)
     }
     this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)
-
   }
-
   generateTiles() {
     const arrayTiles = []
     for (let i = 0; i < this.state.tilesSize; i++) {
@@ -69,7 +62,6 @@ class Game extends Component {
     this.setState({tiles: arrayTiles})
     console.log(this.state.tiles)
   }
-
   render() {
     return (
       <div>
@@ -94,9 +86,7 @@ class Game extends Component {
     )
   }
 }
-
 //------------child--------------------------------
-
 class TileSet extends Component {
   constructor(props) {
     super(props)
@@ -121,9 +111,7 @@ class TileSet extends Component {
     )
   }
 }
-
 //------------child--------------------------------
-
 class Coinflip extends React.Component {
   render() {
     return (
@@ -144,9 +132,7 @@ class Coinflip extends React.Component {
     )
   }
 }
-
 //-----------childs-------------------------------
-
 class Shotglass extends Component {
   render() {
     return (
@@ -156,27 +142,4 @@ class Shotglass extends Component {
     )
   }
 }
-
 export default Game
-
-{
-  /*
-https://codepen.io/gaearon/pen/gWWZgR?editors=0010
-
-
-//Set value of a const to = URL
-const marker 4
-then in the state do an
-if  (heads) = true
-  setvalue = false for the one im on
-   marker -1
-  setState value = true
-  tile to left tile to right
-  else {
-    setvalue = false for the one im on
-    marker + 1
-    setstate value = true
-    to the other side.
-  }
-*/
-}
