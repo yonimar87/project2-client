@@ -33,6 +33,7 @@ class Game extends Component {
     this.setState({result: tossOutcome}, this.buildArray);
     //console.log(this.state.result)
   }
+
   buildArray() {
     let tCounter = this.state.turnCounter;
     let tMarker = this.state.marker;
@@ -67,29 +68,25 @@ class Game extends Component {
     this.setState({tiles: arrayTiles})
     console.log(this.state.tiles)
   }
+
   render() {
     return (
-      <div>
-        <div className="gameTop">
-          <div className="gtChild">
+      <div className="gamePage">
+          <div className="p1">
             <h1>Player 1</h1>
           </div>
-          <div className="gtChild">
+          <div className="flip">
             <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
           </div>
-          <div className="gtChild">
+          <div className="p2">
             <h1>Player 2</h1>
           </div>
-        </div>
         <div className="gameBottom">
             <TileSet tiles={this.state.tiles} />
         </div>
         <div className="Hidden">
           THIS NEEDS TO BE THE HIDDEN div
         </div>
-        // <div>
-        //   {this.state.result}
-        // </div>
       </div>
     )
   }
