@@ -141,3 +141,19 @@ button {
 h1 , p , h2 , h3 , h4 , h5 , h6 {
   color: #EEE9E5;
 }
+
+.playerpoints {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 3em;
+}
+
+.playername {
+  font-size: 3em;
+}
+
+.pointstotal {
+  font-size: 0.9em;
+  padding: 10px;
+}
