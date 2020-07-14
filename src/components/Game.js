@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import shotglass from "../images/shotglass.jpg";
+import shotglass from "./images/shotglass3.png";
 
 class Game extends Component {
   constructor(props){
@@ -86,7 +86,7 @@ class TileSet extends Component {
    render() {
      return (
        <div>
-          {this.state.tiles.map(tile => {
+          {this.props.tiles.map(tile => {
             return !tile ?
                 <div class="tiles" id="tile_x">tiles</div>
               :
