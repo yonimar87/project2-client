@@ -1,6 +1,7 @@
 * {
   font-family: 'Bangers', cursive;
   font-size: 1em;
+  box-sizing: border-box;
 }
 
 #background {
@@ -40,10 +41,11 @@ button {
 }
 
 #coin {
+  cursor: pointer;
   position: relative;
   margin: 0 auto;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 #coin div {
   width: 100%;
@@ -59,13 +61,15 @@ button {
     0 12px 20px -10px rgba(0, 0, 0, 0.4);
 }
 .side-a {
-  background-image: url(https://images-na.ssl-images-amazon.com/images/I/91VycU5MBcL._AC_UL320_SR318,320_.jpg);
+  background-image: url("./components/images/dollarback.png");
   object-fit: fill;
   color: red;
   text-align: center;
+
 }
+
 .side-b {
-  background-image: url(https://www.ramint.gov.au/sites/default/files/2020/Corporate_website/large_2020-1-uncirculated_qantas_centenary_circ_rev.jpg);
+  background-image: url("./components/images/dollarfront.png");
   color: red;
   text-align: center;
   height: 100%;
@@ -80,7 +84,7 @@ button {
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 .side-a {
   z-index: 100;
@@ -127,7 +131,7 @@ button {
 }
 
 h1 , p , h2 , h3 , h4 , h5 , h6 {
-  color: #EEE9E5;
+   color: red; /*#EEE9E5; */
 }
 
 .playerpoints {
@@ -147,11 +151,26 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
 }
 
 .tile_x {
+  border: 1px solid red;
   width: 10%;
+}
+
+.gameTop{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  /* flex-flow: row nowrap; */
+  /* border: 1px solid red; */
+  color: red;
+  padding: 1em;
+  text-align: center;
+  padding-bottom: 35em;
+}
 
 .gtChild{
   width: 40%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   align-self: center;
   justify-content: center;
 }
@@ -161,4 +180,11 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
   margin-right: auto;
   width: 8em;
   margin-top: 25%;
+}
+
+.form {
+width: 100%;
+ padding: 12px 20px;
+ margin: 8px 0;
+ box-sizing: border-box;
 }
