@@ -34,6 +34,19 @@ button {
   height: 30vh;
   width: 20vw;
 }
+
+#homelogin {
+  height: 30vh;
+  width: 20vw;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: -5;
+  opacity: 1;
+}
+
 #coin {
   cursor: pointer;
   position: relative;
