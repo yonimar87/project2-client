@@ -54,7 +54,7 @@ class Game extends Component {
       tCounter++;
       tMarker--;
       if (tMarker === player2) {
-        alert("Congratulation Player 2 wins! ")
+        alert("Congratulation Player 2 wins! "
       }
     }
     this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)

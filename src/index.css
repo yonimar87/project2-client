@@ -1,6 +1,7 @@
 * {
   font-family: 'Bangers', cursive;
   font-size: 1em;
+  box-sizing: border-box;
 }
 
 #background {
@@ -36,6 +37,7 @@ button {
   width: 20vw;
 }
 #coin {
+  cursor: pointer;
   position: relative;
   margin: 0 auto;
   width: 100px;
@@ -123,7 +125,7 @@ button {
 }
 
 h1 , p , h2 , h3 , h4 , h5 , h6 {
-  color: #EEE9E5;
+   color: red; /*#EEE9E5; */
 }
 
 .playerpoints {
@@ -143,6 +145,40 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
 }
 
 .tile_x {
+  border: 1px solid red;
   width: 10%;
+}
 
+.gameTop{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  /* flex-flow: row nowrap; */
+  /* border: 1px solid red; */
+  color: red;
+  padding: 1em;
+  text-align: center;
+  padding-bottom: 35em;
+}
+
+.gtChild{
+  width: 40%;
+  /* border: 1px solid red; */
+  align-self: center;
+  justify-content: center;
+}
+
+.loginform {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+  margin-top: 25%;
+}
+
+.form {
+width: 100%;
+ padding: 12px 20px;
+ margin: 8px 0;
+ box-sizing: border-box;
 }
