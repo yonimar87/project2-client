@@ -26,8 +26,8 @@ loss = () => {
     <div className="playerpoints">
     <h1 className="playername"> Player {} </h1>
     <p className="pointstotal"> Total Points: {this.state.count} </p>
-    <button onClick={this.win}> You Won </button>
-    <button onClick={this.loss}> You Lost </button>
+    <button onClick={this.win}> Player 1  </button>
+    <button onClick={this.loss}> Player 2</button>
     </div>
     );
   }

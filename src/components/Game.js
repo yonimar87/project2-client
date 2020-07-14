@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import shotglass from './images/shotglass3.png'
-
 class Game extends Component {
   constructor(props) {
     super(props)
@@ -15,14 +14,11 @@ class Game extends Component {
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
   }
-
   // componentDidUpdate(prevProps, prevState){
   //   if(prevState.turnCounter !== this.state.turnCounter){
   //     this.buildArray()
   //   }
   // }
-
-
   coinToss() {
     let tossOutcome = '';
     if (Math.random() < 0.5) {
@@ -37,30 +33,22 @@ class Game extends Component {
     this.setState({result: tossOutcome}, this.buildArray);
     //console.log(this.state.result)
   }
-
   buildArray() {
     let tCounter = this.state.turnCounter;
     let tMarker = this.state.marker;
-    let player1 = 6
-    let player2 = 0
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-        tCounter++;
-      tMarker++;
-      if (tMarker === player1) {
-        alert("Congratulation Player 1 wins! ")
-      }
-     }
-    else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
-      tCounter++;
+        //tCounter++;
+        tMarker++;
+        console.log(tCounter);
+    //  this.setState({marker: this.state.marker++}, this.generateTiles)
+    } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
+      //tCounter++;
       tMarker--;
-      if (tMarker === player2) {
-        alert("Congratulation Player 2 wins! ")
-      }
+        console.log(tCounter);
+      //this.setState({marker: this.state.marker--}, this.generateTiles)
     }
     this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)
-    console.log(tCounter);
   }
-
   generateTiles() {
     const arrayTiles = []
     for (let i = 0; i < this.state.tilesSize; i++) {
@@ -74,17 +62,9 @@ class Game extends Component {
     this.setState({tiles: arrayTiles})
     console.log(this.state.tiles)
   }
-
   render() {
     return (
       <div>
-<<<<<<< HEAD
-        <div>
-          <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
-        </div>
-        <div>
-        < TileSet tiles={this.state.tiles} />
-=======
         <div className="gameTop">
           <div className="gtChild">
             <h1>Player 1</h1>
@@ -98,7 +78,6 @@ class Game extends Component {
         </div>
         <div className="gameBottom">
             <TileSet tiles={this.state.tiles} />
->>>>>>> 70d9c049d4020e392c95dd49f4033022b57769cd
         </div>
         // <div>
         //   {this.state.result}
@@ -107,9 +86,7 @@ class Game extends Component {
     )
   }
 }
-
 //------------child--------------------------------
-
 class TileSet extends Component {
   constructor(props) {
     super(props)
@@ -122,7 +99,7 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div className="tile_x">YEET</div>
+            <div class="tile_x">YEET</div>
           ) : (
             <div id="tile4">
               {' '}
@@ -134,15 +111,13 @@ class TileSet extends Component {
     )
   }
 }
-
 //------------child--------------------------------
-
 class Coinflip extends React.Component {
   render() {
     return (
       <div>
-        <div id="coin" className={this.props.outcome}>
-          <div className="side-a">
+        <div id="coin" className={this.props.outcome} onClick={this.props.coinFlip}>
+          <div class="side-a">
             <h2>TAIL</h2>
           </div>
           <div className="side-b">
@@ -150,16 +125,14 @@ class Coinflip extends React.Component {
           </div>
         </div>
         <h1>Flip a coin</h1>
-        <button id="btn" onClick={this.props.coinFlip}>
+        {/* <button id="btn" onClick={this.props.coinFlip}>
           Coin Toss
-        </button>
+         </button> */}
       </div>
     )
   }
 }
-
 //-----------childs-------------------------------
-
 class Shotglass extends Component {
   render() {
     return (
@@ -167,6 +140,39 @@ class Shotglass extends Component {
         <img id="shotglass" src={shotglass} />
       </div>
     )
+  }
+}
+ //------- child ----------------------------------
+class Counter extends Component {
+
+constructor(props) {
+  super(props);
+  this.state = {
+    count: 0
+  };
+}
+
+win = () => {
+  this.setState({
+    count: this.state.count + 1
+  })
+};
+
+loss = () => {
+  this.setState({
+    count: this.state.count - 1
+  })
+};
+
+  render() {
+    return (
+    <div className="playerpoints">
+    <h1 className="playername"> Player {} </h1>
+    <p className="pointstotal"> Total Points: {this.state.count} </p>
+    <button onClick={this.win}> Player 1 </button>
+    <button onClick={this.loss}> Player 2</button>
+    </div>
+    );
   }
 }
 
