@@ -38,7 +38,7 @@ class Login extends Component{
   render ()
   {
     return(
-      <div>
+      <div className="loginform">
         <form>
           <input
           name="email"
