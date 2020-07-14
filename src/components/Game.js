@@ -78,11 +78,27 @@ class Game extends Component {
   render() {
     return (
       <div>
+<<<<<<< HEAD
         <div>
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
         </div>
         <div>
         < TileSet tiles={this.state.tiles} />
+=======
+        <div className="gameTop">
+          <div className="gtChild">
+            <h1>Player 1</h1>
+          </div>
+          <div className="gtChild">
+            <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
+          </div>
+          <div className="gtChild">
+            <h1>Player 2</h1>
+          </div>
+        </div>
+        <div className="gameBottom">
+            <TileSet tiles={this.state.tiles} />
+>>>>>>> 70d9c049d4020e392c95dd49f4033022b57769cd
         </div>
         // <div>
         //   {this.state.result}
@@ -106,9 +122,7 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div class="tile_x">
-              YEET
-            </div>
+            <div className="tile_x">YEET</div>
           ) : (
             <div id="tile4">
               {' '}
