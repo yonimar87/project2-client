@@ -98,11 +98,11 @@ class TileSet extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div class="tiles" id="tile_x">
-              tiles
+            <div id="tile_x">
+              YEET
             </div>
           ) : (
             <div id="tile4">

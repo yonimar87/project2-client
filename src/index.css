@@ -1,6 +1,6 @@
 * {
   font-family: 'Bangers', cursive;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 #background {
@@ -48,7 +48,7 @@ button {
 }
 
 #shotglass {
-  height: 400px;
+  height: 300px;
 }
 
 #coin {
