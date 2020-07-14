@@ -77,21 +77,19 @@ class Game extends Component {
   render() {
     return (
       <div>
-        <div>
-          <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
+        <div className="gameTop">
+          <div className="gtChild">
+            <h1>Player 1</h1>
+          </div>
+          <div className="gtChild">
+            <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
+          </div>
+          <div className="gtChild">
+            <h1>Player 2</h1>
+          </div>
         </div>
-<<<<<<< HEAD
-        <div>
-        < TileSet tiles={this.state.tiles} />
-=======
-        <div class="board">
-          <TileSet tiles={this.state.tiles} />
-        </div>
-        //{' '}
-        <div>
-          // {this.state.result}
-          //{' '}
->>>>>>> 1426272eb5df94798e529d2013e21b550c72824a
+        <div className="gameBottom">
+            <TileSet tiles={this.state.tiles} />
         </div>
       </div>
     )
@@ -112,13 +110,7 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-<<<<<<< HEAD
-            <div class="tile_x">
-              YEET
-            </div>
-=======
-            <div id="tile_x">YEET</div>
->>>>>>> 1426272eb5df94798e529d2013e21b550c72824a
+            <div class="tile_x">YEET</div>
           ) : (
             <div id="tile4">
               {' '}
@@ -137,7 +129,7 @@ class Coinflip extends React.Component {
   render() {
     return (
       <div>
-        <div id="coin" className={this.props.outcome}>
+        <div id="coin" className={this.props.outcome} onClick={this.props.coinFlip}>
           <div class="side-a">
             <h2>TAIL</h2>
           </div>
@@ -146,9 +138,9 @@ class Coinflip extends React.Component {
           </div>
         </div>
         <h1>Flip a coin</h1>
-        <button id="btn" onClick={this.props.coinFlip}>
+        {/* <button id="btn" onClick={this.props.coinFlip}>
           Coin Toss
-        </button>
+         </button> */}
       </div>
     )
   }
