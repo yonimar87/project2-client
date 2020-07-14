@@ -118,10 +118,10 @@ class Coinflip extends React.Component {
       <div>
         <div id="coin" className={this.props.outcome} onClick={this.props.coinFlip}>
           <div class="side-a">
-            <h2>TAIL</h2>
+            {/* <h2>TAIL</h2> */}
           </div>
           <div className="side-b">
-            <h2>HEAD</h2>
+            {/* <h2>HEAD</h2> */}
           </div>
         </div>
         <h1>Flip a coin</h1>
