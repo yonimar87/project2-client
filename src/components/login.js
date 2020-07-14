@@ -1,5 +1,6 @@
 import React , { Component } from "react";
 import fire from "./config/firebase"
+import homelogin from './images/logo.png'
 
 class Login extends Component{
   constructor(props){
@@ -40,13 +41,13 @@ class Login extends Component{
   {
     return(
       <div className="loginform">
-        
+
         <form>
           <input
           name="email"
           type="email"
           id="email"
-          placehodler="Enter email address"
+          placeholder="Enter email address"
           onChange={this.handleChange}
           value={this.state.email} />
           <input
@@ -57,8 +58,9 @@ class Login extends Component{
           placeholder="Enter password"
           value={this.state.password}
           />
-          <button onClick={this.login}>Login</button>
-          <button onClick={this.signup}>SignUp</button>
+          <button onClick={this.login} id="loginbutton">Login</button>
+          <button onClick={this.signup} id ="signupbutton">SignUp</button>
+              <Homelogin />
         </form>
 
       </div>
@@ -66,5 +68,13 @@ class Login extends Component{
   }
 }
 
-
+class Homelogin extends Component {
+  render() {
+    return (
+      <div>
+        <img id="homelogin" src={homelogin} />
+      </div>
+    )
+  }
+}
 export default Login

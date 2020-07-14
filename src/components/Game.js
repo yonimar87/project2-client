@@ -36,19 +36,24 @@ class Game extends Component {
   buildArray() {
     let tCounter = this.state.turnCounter;
     let tMarker = this.state.marker;
+    let player1 = 6;
+    let player2 = 0;
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-        //tCounter++;
+        tCounter++;
         tMarker++;
-        console.log(tCounter);
-    //  this.setState({marker: this.state.marker++}, this.generateTiles)
+        if (tMarker === player1) {
+          alert("Congratulation Player 1 wins! ")
+        }
     } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
       //tCounter++;
       tMarker--;
-        console.log(tCounter);
-      //this.setState({marker: this.state.marker--}, this.generateTiles)
+      if (tMarker === player2) {
+        alert("Congratulation Player 2 wins! ")
+      }
     }
     this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)
   }
+
   generateTiles() {
     const arrayTiles = []
     for (let i = 0; i < this.state.tilesSize; i++) {
@@ -79,6 +84,9 @@ class Game extends Component {
         <div className="gameBottom">
             <TileSet tiles={this.state.tiles} />
         </div>
+        <div className="Hidden">
+          THIS NEEDS TO BE THE HIDDEN div
+        </div>
         // <div>
         //   {this.state.result}
         // </div>
@@ -99,7 +107,7 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div class="tile_x">YEET</div>
+            <div class="tile_x">Closer..</div>
           ) : (
             <div id="tile4">
               {' '}
@@ -169,8 +177,8 @@ loss = () => {
     <div className="playerpoints">
     <h1 className="playername"> Player {} </h1>
     <p className="pointstotal"> Total Points: {this.state.count} </p>
-    <button onClick={this.win}> Player 1 </button>
-    <button onClick={this.loss}> Player 2</button>
+    <button onClick={this.win}> Player 1 wins: </button>
+    <button onClick={this.loss}> Player 2 wins: </button>
     </div>
     );
   }
