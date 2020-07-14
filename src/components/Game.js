@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import shotglass3 from "../images/shotglass3.png";
+const shotglass = "images/shotglass.jpeg";
 
 class Game extends Component {
   constructor(props){
@@ -23,22 +23,33 @@ class Game extends Component {
   // }
 
   coinToss() {
-    if (Math.random() < 0.5) {
-      this.setState({ result: "heads" }, this.buildArray);
-      console.log("heads");
-    } else {
-      this.setState({ result: "tails" }, this.buildArray);
-      console.log("tails");
+      let tossOutcome = "";
+      if (Math.random() < 0.5) {
+        tossOutcome = "heads";
+        //this.setState({ result: “heads” }, this.buildArray);
+      } else {
+        tossOutcome = "tails";
+        //this.setState({ result: “tails” }, this.buildArray);
+      }
+      this.setState({result: tossOutcome})
+      console.log(this.state.result)
     }
-    console.log(this.state.result)
-  }
 
   buildArray() {
+    let tempMarker = this.state.marker
+    let tempTiles = this.state.tiles
+    let tempCounter = this.state.counter
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-      this.setState({marker: this.state.marker++}, this.generateTiles)
+      tempMarker++
+      tempTiles = this.generateTiles ()
+      console.log(this.generateTiles());
+
     } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
-      this.setState({marker: this.state.marker--}, this.generateTiles)
+      tempMarker--
+      tempTiles = this.generateTiles()
+      console.log(this.generateTiles());
     }
+    this.setState({tiles: tempTiles, turnCounter: tempCounter + 1, marker: tempMarker})
   }
 
   generateTiles() {
@@ -50,9 +61,7 @@ class Game extends Component {
         arrayTiles.push(false);
       }
     }
-    console.log({arrayTiles});
-    this.setState({tiles: arrayTiles, turnCounter: this.state.turnCounter++})
-    console.log(this.state.tiles)
+    return arrayTiles
   }
 
   render() {
@@ -80,13 +89,13 @@ class TileSet extends Component {
    constructor(props){
    super(props)
    this.state = {
-     tiles: this.props.tiles
+     tiles: []
    }
   }
    render() {
      return (
        <div>
-          {this.state.tiles.map(tile => {
+          {this.props.tiles.map(tile => {
             return !tile ?
                 <div class="tiles" id="tile_x">tiles</div>
               :
@@ -127,7 +136,7 @@ class Coinflip extends React.Component {
 class Shotglass extends Component {
   render() {
     return <div>
-      <img id="shotglass" src={shotglass3}/>
+      <img id="shotglass" src={shotglass}/>
     </div>
   }
 }

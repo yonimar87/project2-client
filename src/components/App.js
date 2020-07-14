@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import app from 'firebase/app'
 import fire from './config/firebase'
-import Login from './Login/login'
+import Login from './login'
 import Home from './home'
+import background from "../images/bar.jpeg";
 
  // import FaceEmotion from './WebcamComponent'
 
@@ -57,6 +58,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.user ? (<Home/>) : (<Login/>)}
+        <Background />
         {/*
         <Counter />
         <Counter />
@@ -74,7 +76,13 @@ class App extends Component {
   }
 }
 
-
+class Background extends Component {
+  render() {
+    return <div>
+      <img id="background" src={background}/>
+    </div>
+  }
+}
 
 
 export default App
