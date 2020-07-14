@@ -22,42 +22,38 @@ class Game extends Component {
   //   }
   // }
 
+
   coinToss() {
-    let tossOutcome = ''
+    let tossOutcome = '';
     if (Math.random() < 0.5) {
-      tossOutcome = 'heads'
+      tossOutcome = "heads";
       //this.setState({ result: "heads" }, this.buildArray);
-      console.log(tossOutcome)
+      console.log(tossOutcome);
     } else {
-      tossOutcome = 'tails'
+      tossOutcome = "tails";
       //this.setState({ result: "tails" }, this.buildArray);
-      console.log(tossOutcome)
+      console.log(tossOutcome);
     }
-    this.setState({ result: tossOutcome }, this.buildArray)
+    this.setState({result: tossOutcome}, this.buildArray);
     //console.log(this.state.result)
   }
 
   buildArray() {
-    let tCounter = this.state.turnCounter
-    let tMarker = this.state.marker
-    if (this.state.turnCounter % 2 === 0 && this.state.result === 'heads') {
+    let tCounter = this.state.turnCounter;
+    let tMarker = this.state.marker;
+    if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
+        //tCounter++;
+        tMarker++;
+        console.log(tCounter);
+    //  this.setState({marker: this.state.marker++}, this.generateTiles)
+    } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
       //tCounter++;
-      tMarker++
-      console.log(tCounter)
-      //  this.setState({marker: this.state.marker++}, this.generateTiles)
-    } else if (
-      this.state.turnCounter % 2 !== 0 &&
-      this.state.result === 'heads'
-    ) {
-      //tCounter++;
-      tMarker--
-      console.log(tCounter)
+      tMarker--;
+        console.log(tCounter);
       //this.setState({marker: this.state.marker--}, this.generateTiles)
     }
-    this.setState(
-      { marker: tMarker, turnCounter: tCounter + 1 },
-      this.generateTiles
-    )
+    this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)
+
   }
 
   generateTiles() {
@@ -69,8 +65,8 @@ class Game extends Component {
         arrayTiles.push(false)
       }
     }
-    console.log({ arrayTiles })
-    this.setState({ tiles: arrayTiles })
+    console.log({arrayTiles});
+    this.setState({tiles: arrayTiles})
     console.log(this.state.tiles)
   }
 
@@ -80,19 +76,12 @@ class Game extends Component {
         <div>
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
         </div>
-<<<<<<< HEAD
         <div>
         < TileSet tiles={this.state.tiles} />
-=======
-        <div class="board">
-          <TileSet tiles={this.state.tiles} />
         </div>
-        //{' '}
-        <div>
-          // {this.state.result}
-          //{' '}
->>>>>>> 1426272eb5df94798e529d2013e21b550c72824a
-        </div>
+        // <div>
+        //   {this.state.result}
+        // </div>
       </div>
     )
   }
@@ -112,13 +101,9 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-<<<<<<< HEAD
             <div class="tile_x">
               YEET
             </div>
-=======
-            <div id="tile_x">YEET</div>
->>>>>>> 1426272eb5df94798e529d2013e21b550c72824a
           ) : (
             <div id="tile4">
               {' '}
