@@ -1,3 +1,8 @@
+* {
+  font-family: 'Bangers', cursive;
+  font-size: 1.2em;
+}
+
 #background {
   width: 100vw;
   height: 100vh;
@@ -7,7 +12,7 @@
   top: 0;
   left: 0;
   z-index: -5;
-  opacity: 1.4;
+  opacity: 1;
   object-fit: cover;
 }
 
@@ -32,7 +37,7 @@
   width: 50%;
   left: 25%;
   display: flex;
-  justify-content: center
+  flex-direction: row;
 }
 
 
