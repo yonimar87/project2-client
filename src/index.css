@@ -1,8 +1,8 @@
 * {
   font-family: 'Bangers', cursive;
   font-size: 1em;
+  box-sizing: border-box;
 }
-
 #background {
   width: 100vw;
   height: 100vh;
@@ -15,7 +15,6 @@
   opacity: 1;
   object-fit: cover;
 }
-
 .tiles {
   position: relative;
   display: inline;
@@ -26,20 +25,17 @@
   display: flex;
   flex-direction: row;
 }
-
-
 img,
 video,
 button {
   display: block;
 }
-
 #shotglass {
   height: 30vh;
   width: 20vw;
 }
-
 #coin {
+  cursor: pointer;
   position: relative;
   margin: 0 auto;
   width: 100px;
@@ -125,40 +121,52 @@ button {
     transform: rotateY(720deg);
   }
 }
-
 h1 , p , h2 , h3 , h4 , h5 , h6 {
-  color: #EEE9E5;
+   color: red; /*#EEE9E5; */
 }
-
 .playerpoints {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   padding: 3em;
 }
-
 .playername {
   font-size: 3em;
 }
-
 .pointstotal {
   font-size: 0.9em;
   padding: 10px;
 }
-
 .tile_x {
+  border: 1px solid red;
   width: 10%;
-
+}
+.gameTop{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  /* flex-flow: row nowrap; */
+  /* border: 1px solid red; */
+  color: red;
+  padding: 1em;
+  text-align: center;
+  padding-bottom: 35em;
+}
 .gtChild{
   width: 40%;
   border: 1px solid red;
   align-self: center;
   justify-content: center;
 }
-
 .loginform {
   margin-left: auto;
   margin-right: auto;
   width: 8em;
-  margin-top: 25%;
+  margin-top: 22%;
+}
+
+#signupbutton, #loginbutton {
+  margin-top: 1em;
+  width: 120%;
 }

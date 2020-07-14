@@ -44,7 +44,7 @@ class Login extends Component{
           name="email"
           type="email"
           id="email"
-          placehodler="Enter email address"
+          placeholder="Enter email address"
           onChange={this.handleChange}
           value={this.state.email} />
           <input
@@ -55,8 +55,8 @@ class Login extends Component{
           placeholder="Enter password"
           value={this.state.password}
           />
-          <button onClick={this.login}>Login</button>
-          <button onClick={this.signup}>SignUp</button>
+          <button onClick={this.login} id="loginbutton">Login</button>
+          <button onClick={this.signup} id ="signupbutton">SignUp</button>
         </form>
 
       </div>
