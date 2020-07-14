@@ -168,7 +168,7 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
 
 .gtChild{
   width: 40%;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   align-self: center;
   justify-content: center;
 }
