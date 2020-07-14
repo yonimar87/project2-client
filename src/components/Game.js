@@ -128,7 +128,7 @@ class Coinflip extends React.Component {
   render() {
     return (
       <div>
-        <div id="coin" className={this.props.outcome} onClick={this.props.coinFlip}>
+        <div id="coin" className={this.props.outcome}>
           <div class="side-a">
             <h2>TAIL</h2>
           </div>
@@ -137,9 +137,9 @@ class Coinflip extends React.Component {
           </div>
         </div>
         <h1>Flip a coin</h1>
-        {/* <button id="btn" onClick={this.props.coinFlip}>
+        <button id="btn" onClick={this.props.coinFlip}>
           Coin Toss
-         </button> */}
+        </button>
       </div>
     )
   }
