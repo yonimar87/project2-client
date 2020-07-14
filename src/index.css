@@ -16,22 +16,9 @@
   object-fit: cover;
 }
 
-.board {
-  position: absolute;
-  border: 5px solid #EEE9E5;
-  min-height: 500px;
-  min-width: 500px;
-  margin-left: -250px;
-  margin-top: -250px;
-  top: 50%;
-  left: 50%;
-}
-
 .tiles {
   position: relative;
-  border: 2px solid #EEE9E5;
   display: inline;
-  background-color: #EEE9E5;
   padding: 20px;
   top: 75%;
   width: 50%;
@@ -48,7 +35,8 @@ button {
 }
 
 #shotglass {
-  height: 300px;
+  height: 30vh;
+  width: 20vw;
 }
 
 #coin {
@@ -156,4 +144,9 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
 .pointstotal {
   font-size: 0.9em;
   padding: 10px;
+}
+
+.tile_x {
+  width: 10%;
+
 }

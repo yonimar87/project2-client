@@ -76,7 +76,7 @@ class Game extends Component {
         <div>
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
         </div>
-        <div class="board">
+        <div>
         < TileSet tiles={this.state.tiles} />
         </div>
         // <div>
@@ -101,7 +101,7 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div id="tile_x">
+            <div class="tile_x">
               YEET
             </div>
           ) : (
