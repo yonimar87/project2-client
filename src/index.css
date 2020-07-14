@@ -163,10 +163,10 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
   margin-left: auto;
   margin-right: auto;
   width: 8em;
-  margin-top: 22%;
+  margin-top: 18%;
 }
 
-#signupbutton, #loginbutton {
+#signupbutton, #loginbutton, #email, #password {
   margin-top: 1em;
   width: 120%;
 }
