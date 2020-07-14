@@ -41,19 +41,24 @@ class Game extends Component {
   buildArray() {
     let tCounter = this.state.turnCounter;
     let tMarker = this.state.marker;
+    let player1 = 6
+    let player2 = 0
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-        //tCounter++;
-        tMarker++;
-        console.log(tCounter);
-    //  this.setState({marker: this.state.marker++}, this.generateTiles)
-    } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
-      //tCounter++;
+        tCounter++;
+      tMarker++;
+      if (tMarker === player1) {
+        alert("Congratulation Player 1 wins! ")
+      }
+     }
+    else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
+      tCounter++;
       tMarker--;
-        console.log(tCounter);
-      //this.setState({marker: this.state.marker--}, this.generateTiles)
+      if (tMarker === player2) {
+        alert("Congratulation Player 2 wins! ")
+      }
     }
     this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)
-
+    console.log(tCounter);
   }
 
   generateTiles() {
@@ -76,7 +81,7 @@ class Game extends Component {
         <div>
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
         </div>
-        <div class="board">
+        <div>
         < TileSet tiles={this.state.tiles} />
         </div>
         // <div>
@@ -123,7 +128,7 @@ class Coinflip extends React.Component {
     return (
       <div>
         <div id="coin" className={this.props.outcome}>
-          <div class="side-a">
+          <div className="side-a">
             <h2>TAIL</h2>
           </div>
           <div className="side-b">

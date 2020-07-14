@@ -2,7 +2,7 @@ import React , { Component } from "react";
 import fire from "./config/firebase"
 import Game from "./Game"
 import Counter from './Counter'
-import Characters from './Characters'
+// import Characters from './Characters'
 
 class Home extends Component{
   constructor(props){
@@ -21,7 +21,6 @@ class Home extends Component{
       <button onClick={this.logout}>Logout</button>
       < Game />
       < Counter />
-      < Characters />
       </div>
     )
   }
