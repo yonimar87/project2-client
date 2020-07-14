@@ -22,23 +22,38 @@ class Game extends Component {
   //   }
   // }
 
+
   coinToss() {
+    let tossOutcome = '';
     if (Math.random() < 0.5) {
-      this.setState({ result: "heads" }, this.buildArray);
-      console.log("heads");
+      tossOutcome = "heads";
+      //this.setState({ result: "heads" }, this.buildArray);
+      console.log(tossOutcome);
     } else {
-      this.setState({ result: "tails" }, this.buildArray);
-      console.log("tails");
+      tossOutcome = "tails";
+      //this.setState({ result: "tails" }, this.buildArray);
+      console.log(tossOutcome);
     }
-    console.log(this.state.result)
+    this.setState({result: tossOutcome}, this.buildArray);
+    //console.log(this.state.result)
   }
 
   buildArray() {
+    let tCounter = this.state.turnCounter;
+    let tMarker = this.state.marker;
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-      this.setState({marker: this.state.marker++}, this.generateTiles)
+        //tCounter++;
+        tMarker++;
+        console.log(tCounter);
+    //  this.setState({marker: this.state.marker++}, this.generateTiles)
     } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
-      this.setState({marker: this.state.marker--}, this.generateTiles)
+      //tCounter++;
+      tMarker--;
+        console.log(tCounter);
+      //this.setState({marker: this.state.marker--}, this.generateTiles)
     }
+    this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)
+
   }
 
   generateTiles() {
@@ -51,7 +66,7 @@ class Game extends Component {
       }
     }
     console.log({arrayTiles});
-    this.setState({tiles: arrayTiles, turnCounter: this.state.turnCounter++})
+    this.setState({tiles: arrayTiles})
     console.log(this.state.tiles)
   }
 
@@ -64,9 +79,9 @@ class Game extends Component {
         <div class="board">
         < TileSet tiles={this.state.tiles} />
         </div>
-        <div>
-          {this.state.result}
-        </div>
+        // <div>
+        //   {this.state.result}
+        // </div>
       </div>
     )
   }
