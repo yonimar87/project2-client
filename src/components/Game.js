@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
-const shotglass = "images/shotglass.jpeg";
-=======
 import shotglass from './images/shotglass3.png'
->>>>>>> 25907ddeefbb2ce63ac10e90320e1146bed69a27
 
 class Game extends Component {
   constructor(props) {
@@ -28,35 +24,6 @@ class Game extends Component {
 
 
   coinToss() {
-<<<<<<< HEAD
-      let tossOutcome = "";
-      if (Math.random() < 0.5) {
-        tossOutcome = "heads";
-        //this.setState({ result: “heads” }, this.buildArray);
-      } else {
-        tossOutcome = "tails";
-        //this.setState({ result: “tails” }, this.buildArray);
-      }
-      this.setState({result: tossOutcome})
-      console.log(this.state.result)
-    }
-
-  buildArray() {
-    let tempMarker = this.state.marker
-    let tempTiles = this.state.tiles
-    let tempCounter = this.state.counter
-    if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-      tempMarker++
-      tempTiles = this.generateTiles ()
-      console.log(this.generateTiles());
-
-    } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
-      tempMarker--
-      tempTiles = this.generateTiles()
-      console.log(this.generateTiles());
-    }
-    this.setState({tiles: tempTiles, turnCounter: tempCounter + 1, marker: tempMarker})
-=======
     let tossOutcome = '';
     if (Math.random() < 0.5) {
       tossOutcome = "heads";
@@ -87,7 +54,6 @@ class Game extends Component {
     }
     this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)
 
->>>>>>> 25907ddeefbb2ce63ac10e90320e1146bed69a27
   }
 
   generateTiles() {
@@ -99,13 +65,9 @@ class Game extends Component {
         arrayTiles.push(false)
       }
     }
-<<<<<<< HEAD
-    return arrayTiles
-=======
     console.log({arrayTiles});
     this.setState({tiles: arrayTiles})
     console.log(this.state.tiles)
->>>>>>> 25907ddeefbb2ce63ac10e90320e1146bed69a27
   }
 
   render() {
@@ -128,27 +90,6 @@ class Game extends Component {
 //------------child--------------------------------
 
 class TileSet extends Component {
-<<<<<<< HEAD
-   constructor(props){
-   super(props)
-   this.state = {
-     tiles: []
-   }
-  }
-   render() {
-     return (
-       <div>
-          {this.props.tiles.map(tile => {
-            return !tile ?
-                <div class="tiles" id="tile_x">tiles</div>
-              :
-                <div id="tile4"> < Shotglass /> </div>
-              }
-          )}
-       </div>
-     )
-   }
-=======
   constructor(props) {
     super(props)
     this.state = {
@@ -172,7 +113,6 @@ class TileSet extends Component {
         })}
       </div>
     )
->>>>>>> 25907ddeefbb2ce63ac10e90320e1146bed69a27
   }
 }
 
@@ -212,25 +152,3 @@ class Shotglass extends Component {
 }
 
 export default Game
-
-{
-  /*
-https://codepen.io/gaearon/pen/gWWZgR?editors=0010
-
-
-//Set value of a const to = URL
-const marker 4
-then in the state do an
-if  (heads) = true
-  setvalue = false for the one im on
-   marker -1
-  setState value = true
-  tile to left tile to right
-  else {
-    setvalue = false for the one im on
-    marker + 1
-    setstate value = true
-    to the other side.
-  }
-*/
-}
