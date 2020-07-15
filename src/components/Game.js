@@ -9,12 +9,13 @@ class Game extends Component {
       turnCounter: 0,
       tilesSize: 7,
       marker: 3,
-      tiles: [] // [false, false,false,true,false,false, false]
+      tiles: [false, false,false,true,false,false, false]
     }
     this.coinToss = this.coinToss.bind(this)
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
-
+    console.log('props' + props);
+// need user ID  + user email
   }
 
   coinToss() {
@@ -194,5 +195,7 @@ loss = () => {
     );
   }
 }
+
+//---------child-------------------------------
 
 export default Game
