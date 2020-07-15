@@ -1,6 +1,0 @@
-openGames.on("child_removed", function(snapshot) {
-  let item = document.querySelector("#" + snapshot.key);
-  if (item) {
-    item.remove()
-  }
-)};

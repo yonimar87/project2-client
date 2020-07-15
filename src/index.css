@@ -186,6 +186,7 @@ button {
   justify-content: center;
   border: 1px solid red;
   text-align: center;
+  font-size: 24px;
 }
 
 .flip {
@@ -208,6 +209,13 @@ button {
 }
 
 .winner {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  background-size: 100% 100%;
+  border-radius: 20px;
+  background-image: url("./components/images/emptyglass.jpg");
   z-index: 1000;
   position: fixed;
   width: 50vw;
@@ -216,8 +224,8 @@ button {
   margin-top: -25vh;
   left: 50%;
   top: 50%;
-  background: white;
   color: red;
+  font-size: 5vw; overflow: hidden;
 }
 
 
