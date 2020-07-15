@@ -3,6 +3,18 @@
   font-size: 1em;
   box-sizing: border-box;
 }
+
+h1 , p , h2 , h3 , h4 , h5 , h6 {
+   color: red; /*#EEE9E5; */
+}
+
+img,
+video,
+button {
+  display: block;
+}
+
+/* ---------- App.js -------------- */
 #background {
   width: 100vw;
   height: 100vh;
@@ -15,26 +27,8 @@
   opacity: 1;
   object-fit: cover;
 }
-.tiles {
-  position: relative;
-  padding: 20px;
-  top: 75%;
-  width: 75%;
-  display: flex;
-  flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
 
-}
-img,
-video,
-button {
-  display: block;
-}
-#shotglass {
-  height: 30vh;
-  width: 20vw;
-}
+/* ------------Login.js ------------*/
 
 #homelogin {
   height: 30vh;
@@ -47,6 +41,25 @@ button {
   z-index: -5;
   opacity: 1;
 }
+
+/* ----------------Tiles Class ------------ */
+.tiles {
+  position: relative;
+  padding: 20px;
+  top: 75%;
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#shotglass {
+  height: 30vh;
+  width: 20vw;
+}
+
+/* -------------Coin Flip / Toss --------------*/
 
 #coin {
   cursor: pointer;
@@ -91,10 +104,11 @@ button {
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /* border: 2px solid red; */
 }
 .side-a {
   z-index: 100;
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0)
 }
 .side-b {
   -webkit-transform: rotateY(-180deg);
@@ -136,9 +150,9 @@ button {
     transform: rotateY(720deg);
   }
 }
-h1 , p , h2 , h3 , h4 , h5 , h6 {
-   color: red; /*#EEE9E5; */
-}
+
+/* -------------------counter class css ----------------*/
+
 .playerpoints {
   display: flex;
   flex-direction: row;
@@ -172,6 +186,7 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
   justify-content: center;
   border: 1px solid red;
   text-align: center;
+  font-size: 24px;
 }
 
 .flip {
@@ -187,14 +202,32 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
   border: 1px solid red;
 }
 
-.Hidden {
-  display: none;
-  margin-left: auto;
-  margin-right: auto;
-  width: 8em;
-  text-align: center;
-  color: limegreen;
+.tilesParent {
+  flex: 1 100%;
+  height: auto;
+  border: 1px solid limegreen;
 }
+
+.winner {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  background-size: 100% 100%;
+  border-radius: 20px;
+  background-image: url("./components/images/emptyglass.jpg");
+  z-index: 1000;
+  position: fixed;
+  width: 50vw;
+  height: 50vh;
+  margin-left: -25vw;
+  margin-top: -25vh;
+  left: 50%;
+  top: 50%;
+  color: red;
+  font-size: 5vw; overflow: hidden;
+}
+
 
 /* --------------------------- LOGIN ------------------------------ */
 .loginform {
