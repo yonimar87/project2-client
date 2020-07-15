@@ -12,7 +12,6 @@ class Game extends Component {
       turnCounter: 0,
       tilesSize: 7,
       marker: 3,
-      nader: "nader",
       tiles: [] // [false, false,false,true,false,false, false]
     }
     this.coinToss = this.coinToss.bind(this)
