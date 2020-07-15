@@ -14,7 +14,7 @@ class Game extends Component {
     this.coinToss = this.coinToss.bind(this)
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
-  /*  this._handleClick = this._handleClick.bind(this) */
+    this._handleClick = this._handleClick.bind(this)
 
   }
 
@@ -22,7 +22,7 @@ class Game extends Component {
     this.setState({result: ''});
     setTimeout( () => {
       let tossOutcome = '';
-      if (Math.random() < 0.5) {
+      if (Math.random() < 0.7) {
         tossOutcome = "heads";
         //this.setState({ result: "heads" }, this.buildArray);
         console.log(tossOutcome);
@@ -42,16 +42,15 @@ class Game extends Component {
     let player2 = 0;
     let winner = '';
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-        tCounter++;
         tMarker++;
         if (tMarker === player1) {
-          winner = "player1";
+          winner = "player2";
           //alert("Congratulation Player 1 wins! ")
         }
     } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
       tMarker--;
       if (tMarker === player2) {
-        winner = "player2"
+        winner = "player1"
         //alert("Congratulation Player 2 wins! ")
       }
     }
@@ -74,10 +73,10 @@ class Game extends Component {
   },2050);
   }
 
-/*  _handleClick(event) {
+  _handleClick(event) {
     this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
   }
-*/
+
   render() {
     return (
       <div className="gamePage">
@@ -97,7 +96,7 @@ class Game extends Component {
           { /* <TileSet /> */ }
         </div>
 
-        { this.state.Winner && <WinDiv Winner={this.state.Winner} /* _handleClick={this._handleClick} */ /> }
+        { this.state.Winner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
 
       </div>
     )
@@ -145,9 +144,10 @@ class Coinflip extends React.Component {
   }
 }
 //---------------child -----------------------
+
 const WinDiv = (props) => <div className="winner">
-  <div> {props.Winner} Drink!!</div>
-  <button /* onClick={props._handleClick} */ >Restart</button>
+  <div className="drink"> {props.Winner} Drink!!</div>
+  <div className="restart" onClick={props._handleClick} >Play Again</div>
   </div>
 
 // class WinDiv extends React.Component {
