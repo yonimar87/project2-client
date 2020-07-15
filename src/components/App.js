@@ -5,18 +5,6 @@ import Login from './login'
 import Home from './home'
 import background from "./images/bar.jpeg";
 
- // import FaceEmotion from './WebcamComponent'
-
-// import FaceEmotion from './WebcamComponent'
-//import Tournament from './Tournament'
-
-// import { Button } from 'reactstrap'
-// import Application from './UserAuth/Application'
-// import Newsfeed from './Newsfeed'
-// import Buttons from './Buttons'
-// import Tiles from './Tiles'
-
-
 class App extends Component {
 
   constructor(props) {
@@ -58,16 +46,6 @@ class App extends Component {
         {this.state.user ? (<Home/>) : (<Login/>)}
         <Background />
         {/*
-        <Counter />
-        <Counter />
-        <Characters />
-        <Application />
-        <Buttons />
-        <Tournament />
-        <Coinflip />
-        <FaceEmotion />
-        <Newsfeed />
-        <Tiles />
         */}
       </div>
     )

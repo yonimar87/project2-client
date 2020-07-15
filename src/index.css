@@ -17,13 +17,14 @@
 }
 .tiles {
   position: relative;
-  display: inline;
   padding: 20px;
   top: 75%;
-  width: 50%;
-  left: 25%;
+  width: 75%;
   display: flex;
   flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 img,
 video,
@@ -68,15 +69,14 @@ button {
     0 12px 20px -10px rgba(0, 0, 0, 0.4);
 }
 .side-a {
-  background-image: url("./components/images/dollarback.png");
+  background-image: url("./components/images/dollarfront.png");
   object-fit: fill;
   color: red;
   text-align: center;
-
 }
 
 .side-b {
-  background-image: url("./components/images/dollarfront.png");
+  background-image: url("./components/images/dollarback.png");
   color: red;
   text-align: center;
   height: 100%;
@@ -154,43 +154,81 @@ h1 , p , h2 , h3 , h4 , h5 , h6 {
 }
 .tile_x {
   border: 1px solid red;
-  width: 10%;
+  width: 16%;
 }
 
-.gameTop{
+/* -------------------------- Game Page Divs -------------------------*/
+
+.gamePage{
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  /* flex-flow: row nowrap; */
-  /* border: 1px solid red; */
-  color: red;
-  padding: 1em;
-  text-align: center;
-  padding-bottom: 35em;
+  flex-wrap: wrap;
+  width: 100%;
+  border: 1px solid red;
 }
 
-.gtChild{
-  width: 40%;
-  /* border: 1px solid red; */
+.p1, .p2 {
+  flex: 1;
   align-self: center;
   justify-content: center;
+  border: 1px solid red;
+  text-align: center;
 }
+
+.flip {
+  flex: 2;
+  align-self: center;
+  justify-content: center;
+  border: 1px solid red;
+  text-align: center;
+}
+
+.gameBottom {
+  flex: 1 100%;
+  border: 1px solid red;
+}
+
+.Hidden {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+  text-align: center;
+  color: limegreen;
+}
+
+/* --------------------------- LOGIN ------------------------------ */
 .loginform {
   margin-left: auto;
   margin-right: auto;
   width: 8em;
   margin-top: 18%;
 }
-
 #signupbutton, #loginbutton, #email, #password {
   margin-top: 1em;
   width: 120%;
 }
-
 .form {
 width: 100%;
  padding: 12px 20px;
  margin: 8px 0;
  box-sizing: border-box;
 }
+
+
+/*
+.gameTop{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  color: red;
+  padding: 1em;
+  text-align: center;
+  padding-bottom: 35em;
+}
+*/
+/* .gtChild {
+  width: 40%;
+  align-self: center;
+  justify-content: center;
+} */

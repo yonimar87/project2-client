@@ -27,6 +27,7 @@ class Login extends Component{
       console.log(u);
     }).catch((err)=>{
       console.log(err);
+      alert("Sorry a username with that email address is already registered")
     })
   }
   handleChange(e) {
