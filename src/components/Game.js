@@ -5,6 +5,7 @@ class Game extends Component {
     super(props)
     this.state = {
       result: '',
+      Winner: '',
       turnCounter: 0,
       tilesSize: 7,
       marker: 3,
@@ -13,25 +14,24 @@ class Game extends Component {
     this.coinToss = this.coinToss.bind(this)
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
+
   }
-  // componentDidUpdate(prevProps, prevState){
-  //   if(prevState.turnCounter !== this.state.turnCounter){
-  //     this.buildArray()
-  //   }
-  // }
+
   coinToss() {
-    let tossOutcome = '';
-    if (Math.random() < 0.5) {
-      tossOutcome = "heads";
-      //this.setState({ result: "heads" }, this.buildArray);
-      console.log(tossOutcome);
-    } else {
-      tossOutcome = "tails";
-      //this.setState({ result: "tails" }, this.buildArray);
-      console.log(tossOutcome);
-    }
-    this.setState({result: tossOutcome}, this.buildArray);
-    //console.log(this.state.result)
+    this.setState({result: ''});
+    setTimeout( () => {
+      let tossOutcome = '';
+      if (Math.random() < 0.5) {
+        tossOutcome = "heads";
+        //this.setState({ result: "heads" }, this.buildArray);
+        console.log(tossOutcome);
+      } else {
+        tossOutcome = "tails";
+        //this.setState({ result: "tails" }, this.buildArray);
+        console.log(tossOutcome);
+      }
+      this.setState({result: tossOutcome}, this.buildArray);
+    },0);
   }
 
   buildArray() {
@@ -39,20 +39,22 @@ class Game extends Component {
     let tMarker = this.state.marker;
     let player1 = 6;
     let player2 = 0;
+    let winner = '';
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
         tCounter++;
         tMarker++;
         if (tMarker === player1) {
-          alert("Congratulation Player 1 wins! ")
+          winner = "player1";
+          //alert("Congratulation Player 1 wins! ")
         }
     } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
-      //tCounter++;
       tMarker--;
       if (tMarker === player2) {
-        alert("Congratulation Player 2 wins! ")
+        winner = "player2"
+        //alert("Congratulation Player 2 wins! ")
       }
     }
-    this.setState({marker: tMarker, turnCounter: tCounter +1}, this.generateTiles)
+    this.setState({marker: tMarker, turnCounter: tCounter +1, Winner: winner}, this.generateTiles)
   }
 
   generateTiles() {
@@ -66,27 +68,30 @@ class Game extends Component {
     }
     console.log({arrayTiles});
     this.setState({tiles: arrayTiles})
-    console.log(this.state.tiles)
+    //console.log(this.state.tiles)
   }
 
   render() {
     return (
       <div className="gamePage">
-          <div className="p1">
-            <h1>Player 1</h1>
-          </div>
-          <div className="flip">
-            <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
-          </div>
-          <div className="p2">
-            <h1>Player 2</h1>
-          </div>
+        <div className="p1">
+          <h1>Player 1</h1>
+        </div>
+        <div className="flip">
+          <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
+        </div>
+        <div className="p2">
+          <h1>Player 2</h1>
+        </div>
         <div className="gameBottom">
             <TileSet tiles={this.state.tiles} />
         </div>
-        <div className="Hidden">
-          THIS NEEDS TO BE THE HIDDEN div
+        <div className="tilesParent">
+          { /* <TileSet /> */ }
         </div>
+
+        { this.state.Winner && <WinDiv Winner={this.state.Winner}/> }
+
       </div>
     )
   }
@@ -123,20 +128,29 @@ class Coinflip extends React.Component {
       <div>
         <div id="coin" className={this.props.outcome} onClick={this.props.coinFlip}>
           <div class="side-a">
-            <h2>TAIL</h2>
           </div>
           <div className="side-b">
-            <h2>HEAD</h2>
           </div>
         </div>
         <h1>Flip a coin</h1>
-        {/* <button id="btn" onClick={this.props.coinFlip}>
-          Coin Toss
-         </button> */}
       </div>
     )
   }
 }
+//---------------child -----------------------
+const WinDiv = (props) => <div className="winner"> {props.Winner} </div>
+
+// class WinDiv extends React.Component {
+//   render () {
+//     return (
+//       <div>
+//         {this.props.Winner}
+//       </div>
+//     )
+//   }
+// }
+//
+
 //-----------childs-------------------------------
 class Shotglass extends Component {
   render() {
