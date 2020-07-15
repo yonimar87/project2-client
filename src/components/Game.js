@@ -9,11 +9,12 @@ class Game extends Component {
       turnCounter: 0,
       tilesSize: 7,
       marker: 3,
-      tiles: [] // [false, false,false,true,false,false, false]
+      tiles: [false, false,false,true,false,false, false]
     }
     this.coinToss = this.coinToss.bind(this)
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
+  /*  this._handleClick = this._handleClick.bind(this) */
 
   }
 
@@ -59,6 +60,7 @@ class Game extends Component {
 
   generateTiles() {
     const arrayTiles = []
+    setTimeout( () => {
     for (let i = 0; i < this.state.tilesSize; i++) {
       if (i === this.state.marker) {
         arrayTiles.push(true)
@@ -69,8 +71,13 @@ class Game extends Component {
     console.log({arrayTiles});
     this.setState({tiles: arrayTiles})
     //console.log(this.state.tiles)
+  },2050);
   }
 
+/*  _handleClick(event) {
+    this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
+  }
+*/
   render() {
     return (
       <div className="gamePage">
@@ -90,7 +97,7 @@ class Game extends Component {
           { /* <TileSet /> */ }
         </div>
 
-        { this.state.Winner && <WinDiv Winner={this.state.Winner}/> }
+        { this.state.Winner && <WinDiv Winner={this.state.Winner} /* _handleClick={this._handleClick} */ /> }
 
       </div>
     )
@@ -138,7 +145,10 @@ class Coinflip extends React.Component {
   }
 }
 //---------------child -----------------------
-const WinDiv = (props) => <div className="winner"> {props.Winner} </div>
+const WinDiv = (props) => <div className="winner">
+  <div> {props.Winner} Drink!!</div>
+  <button /* onClick={props._handleClick} */ >Restart</button>
+  </div>
 
 // class WinDiv extends React.Component {
 //   render () {
