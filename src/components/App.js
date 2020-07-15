@@ -3,6 +3,7 @@ import app from 'firebase/app'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
+import Livechat from './Livechat'
 import background from "./images/bar.jpeg";
 
 class App extends Component {
