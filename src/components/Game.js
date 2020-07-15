@@ -42,7 +42,7 @@ class Game extends Component {
     let player2 = 0;
     let winner = '';
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-        tCounter++;
+      //  tCounter++;
         tMarker++;
         if (tMarker === player1) {
           winner = "player1";
