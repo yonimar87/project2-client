@@ -9,9 +9,9 @@ class Game extends Component {
       Winner: '',
       displayWinner : false,
       turnCounter: 0,
-      tilesSize: 5,
+      tilesSize: 7,
       marker: 2,
-      tiles: [ false,false,true,false,false],
+      tiles: [ false,false,false,true,false,false,false],
       player1Wins: 0,
       player2Wins: 0
     }
@@ -41,7 +41,7 @@ class Game extends Component {
     let tMarker = this.state.marker;
     let tplayer1wins = this.state.player1Wins;
     let tplayer2wins = this.state.player2Wins;
-    let player1 = 4;
+    let player1 = 6;
     let player2 = 0;
     let winner = '';
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
@@ -85,7 +85,7 @@ class Game extends Component {
   },2050);
   }
   _handleClick(event) {
-    this.setState({turnCounter: 0, marker: 2, result: '', Winner: '', displayWinner: false, tiles: [ false,false,true,false,false]})
+    this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', displayWinner: false, tiles: [ false,false,false,true,false,false,false]})
   }
   render() {
     return (
