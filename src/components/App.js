@@ -3,16 +3,17 @@ import app from 'firebase/app'
 import fire from './config/firebase'
 import Login from './login'
 import Home from './home'
-import Livechat from './Livechat'
 import background from "./images/bar.jpeg";
 
 class App extends Component {
 
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       data: {},
-      user : {}
+      user : {},
+      authenticated: false,
+      loading: true,
     }
   }
 
@@ -37,14 +38,14 @@ class App extends Component {
       }
       else{
         this.setState({user: null})
-      }
+      }console.log('dragon ' + user);
     })
   }
 
   render() {
     return (
       <div className="App">
-        {this.state.user ? (<Home/>) : (<Login/>)}
+        {this.state.user ? (<Home user={this.state.user}/>) : (<Login/>)}
         <Background />
         {/*
         */}

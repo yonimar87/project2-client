@@ -58,10 +58,16 @@ class Game extends Component {
     }
       this.setState({marker: tMarker, turnCounter: tCounter +1, Winner: winner}, this.generateTiles);
       if (winner) {
+        if (winner === "player2") {
+          tplayer1wins++
+        } else {
+          tplayer2wins++
+        }
         setTimeout(() => {
           this.setState({displayWinner: true, player1Wins: tplayer1wins, player2Wins: tplayer2wins})
         }, 3000)
       }    console.log(this.state.player1Wins, this.state.player2Wins);
+
   }
   generateTiles() {
     const arrayTiles = []

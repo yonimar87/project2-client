@@ -8,7 +8,7 @@ class Home extends Component{
   constructor(props){
     super(props)
     this.logout = this.logout.bind(this);
-
+    console.log('dragon' + props.props);    
   }
   logout(){
     fire.auth().signOut();
@@ -19,7 +19,7 @@ class Home extends Component{
       <div>
       <h1>You are logged in!!!</h1>
       <button onClick={this.logout}>Logout</button>
-      < Game />
+      < Game props={this.props.user}/>
       < Counter />
       </div>
     )
