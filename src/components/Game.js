@@ -18,12 +18,7 @@ class Game extends Component {
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
     this._handleClick = this._handleClick.bind(this)
-<<<<<<< HEAD
-
-=======
->>>>>>> 2f553b437d0a8780a634f7d4456158fe3e980306
   }
-
   coinToss() {
     this.setState({result: ''});
     setTimeout( () => {
@@ -40,7 +35,6 @@ class Game extends Component {
       this.setState({result: tossOutcome}, this.buildArray);
     },0);
   }
-
   buildArray() {
     let tCounter = this.state.turnCounter;
     let tMarker = this.state.marker;
@@ -73,9 +67,7 @@ class Game extends Component {
           this.setState({displayWinner: true, player1Wins: tplayer1wins, player2Wins: tplayer2wins})
         }, 3000)
       }    console.log(this.state.player1Wins, this.state.player2Wins);
-
   }
-
   generateTiles() {
     const arrayTiles = []
     setTimeout( () => {
@@ -91,17 +83,9 @@ class Game extends Component {
     //console.log(this.state.tiles)
   },2050);
   }
-
-<<<<<<< HEAD
-_handleClick(event) {
-    this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
-  }
-=======
   _handleClick(event) {
     this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
   }
-
->>>>>>> 2f553b437d0a8780a634f7d4456158fe3e980306
   render() {
     return (
       <div className="gamePage">
@@ -120,13 +104,7 @@ _handleClick(event) {
         <div className="tilesParent">
           { /* <TileSet /> */ }
         </div>
-
-<<<<<<< HEAD
-        { this.state.Winner && <WinDiv Winner={this.state.Winner}  _handleClick={this._handleClick}  /> }
-=======
         { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
-
->>>>>>> 2f553b437d0a8780a634f7d4456158fe3e980306
       </div>
     )
   }
@@ -173,30 +151,10 @@ class Coinflip extends React.Component {
   }
 }
 //---------------child -----------------------
-
 const WinDiv = (props) => <div className="winner">
-<<<<<<< HEAD
-  <div> {props.Winner} Drink!!</div>
-  <button onClick={props._handleClick} >Restart</button>
-  </div>
-
-//  class WinDiv extends React.Component {
-//   render () {
-//     return (
-//       <div>
-//         {this.props.Winner}
-//       </div>
-//     )
-//   }
-// }
-
-=======
   <div className="drink"> {props.Winner} Drink!!</div>
   <div className="restart" onClick={props._handleClick} >Play Again</div>
   </div>
-
->>>>>>> 2f553b437d0a8780a634f7d4456158fe3e980306
-
 //-----------childs-------------------------------
 class Shotglass extends Component {
   render() {
@@ -209,26 +167,22 @@ class Shotglass extends Component {
 }
  //------- child ----------------------------------
 class Counter extends Component {
-
 constructor(props) {
   super(props);
   this.state = {
     count: 0
   };
 }
-
 win = () => {
   this.setState({
     player1Wins: this.state.count + 1
   })
 };
-
 loss = () => {
   this.setState({
     count: this.state.count - 1
   })
 };
-
   render() {
     return (
     <div className="playerpoints">
@@ -240,7 +194,5 @@ loss = () => {
     );
   }
 }
-
 //---------child-------------------------------
-
 export default Game

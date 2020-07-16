@@ -256,7 +256,7 @@ button {
   width: 8em;
   margin-top: 18%;
 }
-#signupbutton, #loginbutton, #email, #password {
+#signupbutton, #loginbutton, #email, #password, #agever {
   margin-top: 1em;
   width: 120%;
 }
