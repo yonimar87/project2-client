@@ -6,23 +6,29 @@ class Game extends Component {
     this.state = {
       result: '',
       Winner: '',
+      displayWinner : false,
       turnCounter: 0,
       tilesSize: 7,
-      marker: 3,
-      tiles: [false, false,false,true,false,false, false]
+      marker: 1,
+      tiles: [false, false,false,true,false,false, false],
+      player1Wins: 0,
+      player2Wins: 0
     }
     this.coinToss = this.coinToss.bind(this)
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
     this._handleClick = this._handleClick.bind(this)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2f553b437d0a8780a634f7d4456158fe3e980306
   }
 
   coinToss() {
     this.setState({result: ''});
     setTimeout( () => {
       let tossOutcome = '';
-      if (Math.random() < 0.5) {
+      if (Math.random() < 0.7) {
         tossOutcome = "heads";
         //this.setState({ result: "heads" }, this.buildArray);
         console.log(tossOutcome);
@@ -38,24 +44,36 @@ class Game extends Component {
   buildArray() {
     let tCounter = this.state.turnCounter;
     let tMarker = this.state.marker;
+    let tplayer1wins = this.state.player1Wins;
+    let tplayer2wins = this.state.player2Wins;
     let player1 = 6;
     let player2 = 0;
     let winner = '';
     if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-      //  tCounter++;
         tMarker++;
         if (tMarker === player1) {
-          winner = "player1";
+          winner = "player2";
           //alert("Congratulation Player 1 wins! ")
         }
     } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
       tMarker--;
       if (tMarker === player2) {
-        winner = "player2"
+        winner = "player1"
         //alert("Congratulation Player 2 wins! ")
       }
     }
-    this.setState({marker: tMarker, turnCounter: tCounter +1, Winner: winner}, this.generateTiles)
+      this.setState({marker: tMarker, turnCounter: tCounter +1, Winner: winner}, this.generateTiles);
+      if (winner) {
+        if (winner === "player2") {
+          tplayer1wins++
+        } else {
+          tplayer2wins++
+        }
+        setTimeout(() => {
+          this.setState({displayWinner: true, player1Wins: tplayer1wins, player2Wins: tplayer2wins})
+        }, 3000)
+      }    console.log(this.state.player1Wins, this.state.player2Wins);
+
   }
 
   generateTiles() {
@@ -74,9 +92,16 @@ class Game extends Component {
   },2050);
   }
 
+<<<<<<< HEAD
 _handleClick(event) {
     this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
   }
+=======
+  _handleClick(event) {
+    this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
+  }
+
+>>>>>>> 2f553b437d0a8780a634f7d4456158fe3e980306
   render() {
     return (
       <div className="gamePage">
@@ -96,7 +121,12 @@ _handleClick(event) {
           { /* <TileSet /> */ }
         </div>
 
+<<<<<<< HEAD
         { this.state.Winner && <WinDiv Winner={this.state.Winner}  _handleClick={this._handleClick}  /> }
+=======
+        { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
+
+>>>>>>> 2f553b437d0a8780a634f7d4456158fe3e980306
       </div>
     )
   }
@@ -143,7 +173,9 @@ class Coinflip extends React.Component {
   }
 }
 //---------------child -----------------------
+
 const WinDiv = (props) => <div className="winner">
+<<<<<<< HEAD
   <div> {props.Winner} Drink!!</div>
   <button onClick={props._handleClick} >Restart</button>
   </div>
@@ -158,6 +190,12 @@ const WinDiv = (props) => <div className="winner">
 //   }
 // }
 
+=======
+  <div className="drink"> {props.Winner} Drink!!</div>
+  <div className="restart" onClick={props._handleClick} >Play Again</div>
+  </div>
+
+>>>>>>> 2f553b437d0a8780a634f7d4456158fe3e980306
 
 //-----------childs-------------------------------
 class Shotglass extends Component {
@@ -181,7 +219,7 @@ constructor(props) {
 
 win = () => {
   this.setState({
-    count: this.state.count + 1
+    player1Wins: this.state.count + 1
   })
 };
 
@@ -202,5 +240,7 @@ loss = () => {
     );
   }
 }
+
+//---------child-------------------------------
 
 export default Game

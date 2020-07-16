@@ -42,7 +42,7 @@ class Login extends Component{
       <div className="loginform">
 
         <form>
-        
+
           <input
           name="email"
           type="email"
@@ -60,7 +60,6 @@ class Login extends Component{
           />
           <button onClick={this.login} id="loginbutton">Login</button>
           <button onClick={this.signup} id ="signupbutton">SignUp</button>
-              <Homelogin />
         </form>
 
       </div>
