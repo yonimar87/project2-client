@@ -7,7 +7,7 @@ class Home extends Component {
     super(props)
     this.logout = this.logout.bind(this)
   }
-  logout() {
+  logout() { //log out authenticator
     fire.auth().signOut()
   }
   render() {
@@ -15,7 +15,7 @@ class Home extends Component {
       <div>
         <h1>You are logged in!!!</h1>
         <button onClick={this.logout}>Logout</button>
-        <Game props={this.props.user} />
+        <Game props={this.props.user} /> {/*rendering the main app which is the game.js*/}
       </div>
     )
   }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import shotglass from './images/shotglass3.png'
 import {fire, db} from './config/firebase'
-
 class Game extends Component {
   constructor(props) {
     super(props)
@@ -12,7 +11,7 @@ class Game extends Component {
       turnCounter: 0,
       tilesSize: 7,
       marker: 3,
-      tiles: [false, false, false, true, false, false, false],
+      tiles: [false, false, false, true, false, false, false], //this is used to provide the right true/false towards the shotglass images rendering
       player1Wins: 0,
       player2Wins: 0,
       users: ''
@@ -23,23 +22,20 @@ class Game extends Component {
     this._handleClick = this._handleClick.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
   }
-  coinToss() {
+  coinToss() { //controls the heads and tails movement.
     this.setState({ result: '' })
     setTimeout(() => {
       let tossOutcome = ''
       if (Math.random() < 0.5) {
         tossOutcome = 'heads'
-        //this.setState({ result: "heads" }, this.buildArray);
-        console.log(tossOutcome)
       } else {
         tossOutcome = 'tails'
-        //this.setState({ result: "tails" }, this.buildArray);
-        console.log(tossOutcome)
       }
       this.setState({ result: tossOutcome }, this.buildArray)
     }, 0)
   }
-  buildArray() {
+  buildArray() {//probably the toughest function we created. This involved assigning a winner based on the counter. had to create temp variables that relate to the states of the global variables.
+    //once a winner is found we then set a time out for the winning div to pop up + displaying overall counter for winner vs loser so the players know who has taken how many shots.
     let tCounter = this.state.turnCounter
     let tMarker = this.state.marker
     let tplayer1wins = this.state.player1Wins
@@ -51,7 +47,6 @@ class Game extends Component {
       tMarker++
       if (tMarker === player1) {
         winner = 'player2'
-        //alert("Congratulation Player 1 wins! ")
       }
     } else if (
       this.state.turnCounter % 2 !== 0 &&
@@ -60,7 +55,6 @@ class Game extends Component {
       tMarker--
       if (tMarker === player2) {
         winner = 'player1'
-        //alert("Congratulation Player 2 wins! ")
       }
     }
     this.setState(
@@ -81,9 +75,8 @@ class Game extends Component {
         })
       }, 3000)
     }
-    console.log(this.state.player1Wins, this.state.player2Wins)
   }
-  generateTiles() {
+  generateTiles() { //generating the right amount of tiles
     const arrayTiles = []
     setTimeout(() => {
       for (let i = 0; i < this.state.tilesSize; i++) {
@@ -93,9 +86,7 @@ class Game extends Component {
           arrayTiles.push(false)
         }
       }
-      console.log({ arrayTiles })
       this.setState({ tiles: arrayTiles })
-      //console.log(this.state.tiles)
     }, 2050)
   }
   _handleClick(event) {
@@ -108,33 +99,29 @@ class Game extends Component {
       tiles: [false, false, false, true, false, false, false]
     })
   }
-
-  componentDidMount() {
+  componentDidMount() { // this is connected to our database on Firebase. We have hard coded a seeding data that's fed into this function.
     db.collection("trivia")
       .get()
       .then(querySnapshot => {
         let data = querySnapshot.docs.map(doc => doc.data());
-        let randomIndex = 'Trivia'+(Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length))+1);
-        console.log(randomIndex);
+        let randomIndex = 'Trivia'+(Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length))+1); //producing random facts based on their name. Each fact is named Trivia(number) and the Math.random + floor finds it up to the length of the object.
         data = data[0][randomIndex]
-        console.log('YONI LOVES' + JSON.stringify(data));
         this.setState({ users: data });
       });
   }
-
   render() {
     return (
       <div className="gamePage">
         <div className="p1">
-          <h1>Player 1: {this.state.player1Wins}</h1>
+          <h1>Player 1 : {this.state.player1Wins}</h1>
         </div>
         <div className="flip">
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
         </div>
         <div className="p2">
-          <h1>Player 2: {this.state.player2Wins}</h1>
+          <h1>Player 2 : {this.state.player2Wins}</h1>
         </div>
-        <div className="spacer">
+        <div className="spacer" id="spacer">
           <div> {this.state.users}
           </div>
         </div>
@@ -142,9 +129,7 @@ class Game extends Component {
           <TileSet tiles={this.state.tiles} />
         </div>
         <div className="tilesParent">
-          { /* <TileSet /> */ }
         </div>
-
         { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
         {this.state.displayWinner && (
           <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} />
@@ -153,7 +138,6 @@ class Game extends Component {
     )
   }
 }
-
 //------------child--------------------------------
 class TileSet extends Component {
   constructor(props) {
@@ -167,9 +151,9 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div class="tile_x">Closer..</div>
+            <div className="tile_x"></div>
           ) : (
-            <div id="tile4">
+            <div className="tile_x">
               {' '}
               <Shotglass />{' '}
             </div>
@@ -179,7 +163,6 @@ class TileSet extends Component {
     )
   }
 }
-
 //------------child--------------------------------
 class Coinflip extends React.Component {
   render() {
@@ -189,10 +172,10 @@ class Coinflip extends React.Component {
           id="coin"
           className={this.props.outcome}
           onClick={this.props.coinFlip}>
-          <div class="side-a"></div>
+          <div className="side-a"></div>
           <div className="side-b"></div>
         </div>
-        <h1>Flip a coin</h1>
+        <h1 id="flipheader">Flip a coin</h1>
       </div>
     )
   }
@@ -205,7 +188,6 @@ const WinDiv = (props) => (
       Play Again
     </div>
   </div>
-
 )
 //-----------childs-------------------------------
 class Shotglass extends Component {
@@ -213,36 +195,6 @@ class Shotglass extends Component {
     return (
       <div>
         <img id="shotglass" src={shotglass} />
-      </div>
-    )
-  }
-}
-
-//------- child ----------------------------------
-class Counter extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      count: 0
-    }
-  }
-  win = () => {
-    this.setState({
-      player1Wins: this.state.count + 1
-    })
-  }
-  loss = () => {
-    this.setState({
-      count: this.state.count - 1
-    })
-  }
-  render() {
-    return (
-      <div className="playerpoints">
-        <h1 className="playername"> Player {} </h1>
-        <p className="pointstotal"> Total Points: {this.state.count} </p>
-        <button onClick={this.win}> Player 1 wins: </button>
-        <button onClick={this.loss}> Player 2 wins: </button>
       </div>
     )
   }
