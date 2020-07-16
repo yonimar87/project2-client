@@ -8,14 +8,23 @@ class Login extends Component {
     this.login = this.login.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.signup = this.signup.bind(this)
-    this.age = this.age.bind(this)
+    this.checkAge = this.checkAge.bind(this)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      checkBox: false
     }
+  }
+  checkAge() {
+    this.setState({ checkBox: !this.state.checkBox })
   }
   login(e) {
     e.preventDefault()
+    if (this.state.checkBox === false) {
+      alert('you must be over 18')
+      return
+    }
+
     fire
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
@@ -52,9 +61,6 @@ class Login extends Component {
         console.log(err)
       })
   }
-  age(e) {
-    e.preventDefault()
-  }
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -81,15 +87,23 @@ class Login extends Component {
             placeholder="Enter password"
             value={this.state.password}
           />
+          <div id="radio">
+            <input
+              name="radio"
+              type="checkbox"
+              id="checkboxButton"
+              value={this.state.radio}
+              required
+              onChange={this.checkAge}
+            />
+            click here if 18 +
+          </div>
+
           <button onClick={this.login} id="loginbutton">
             Login
           </button>
           <button onClick={this.signup} id="signupbutton">
             SignUp
-          </button>
-          <button onClick={this.age} id="agever">
-            {' '}
-            click here if 18 +{' '}
           </button>
         </form>
       </div>

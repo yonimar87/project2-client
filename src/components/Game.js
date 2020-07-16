@@ -121,6 +121,7 @@ class Game extends Component {
         <div className="gameBottom">
           <TileSet tiles={this.state.tiles} />
         </div>
+<<<<<<< HEAD
 
         <div className="tilesParent">
           { /* <TileSet /> */ }
@@ -128,6 +129,8 @@ class Game extends Component {
 
         { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
 
+=======
+>>>>>>> c99c8790930fff87c7be487dd937c2f84e7407aa
         {this.state.displayWinner && (
           <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} />
         )}
@@ -135,6 +138,7 @@ class Game extends Component {
     )
   }
 }
+
 //------------child--------------------------------
 class TileSet extends Component {
   constructor(props) {
@@ -160,6 +164,7 @@ class TileSet extends Component {
     )
   }
 }
+
 //------------child--------------------------------
 class Coinflip extends React.Component {
   render() {
@@ -185,7 +190,10 @@ const WinDiv = (props) => (
       Play Again
     </div>
   </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c99c8790930fff87c7be487dd937c2f84e7407aa
 )
 //-----------childs-------------------------------
 class Shotglass extends Component {

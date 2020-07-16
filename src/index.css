@@ -4,8 +4,14 @@
   box-sizing: border-box;
 }
 
-h1 , p , h2 , h3 , h4 , h5 , h6 {
-   color: red; /*#EEE9E5; */
+h1,
+p,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: red; /*#EEE9E5; */
 }
 
 img,
@@ -65,14 +71,14 @@ button {
     0 12px 20px -10px rgba(0, 0, 0, 0.4);
 }
 .side-a {
-  background-image: url("./components/images/dollarfront.png");
+  background-image: url('./components/images/dollarfront.png');
   object-fit: fill;
   color: red;
   text-align: center;
 }
 
 .side-b {
-  background-image: url("./components/images/dollarback.png");
+  background-image: url('./components/images/dollarback.png');
   color: red;
   text-align: center;
   height: 100%;
@@ -91,11 +97,11 @@ button {
 .side-a {
   z-index: 100;
   -webkit-transform: rotateY(0);
-  transform: rotateY(0)
+  transform: rotateY(0);
 }
 .side-b {
   -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg)
+  transform: rotateY(-180deg);
 }
 #coin.heads {
   -webkit-animation: flipHeads 2s ease-out forwards;
@@ -157,14 +163,15 @@ button {
 
 /* -------------------------- Game Page Divs -------------------------*/
 
-.gamePage{
+.gamePage {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   /* border: 1px solid red; */
 }
 
-.p1, .p2 {
+.p1,
+.p2 {
   flex: 1;
   align-self: center;
   /* justify-content: center; */
@@ -184,7 +191,6 @@ button {
 .gameBottom {
   flex: 1 100%;
   /* border: 1px solid limegreen; */
-
 }
 
 .spacer {
@@ -201,7 +207,7 @@ button {
   text-align: center;
   background-size: 100% 100%;
   border-radius: 20px;
-  background-image: url("./components/images/emptyglass.jpg");
+  background-image: url('./components/images/emptyglass.jpg');
   z-index: 1000;
   position: fixed;
   width: 50vw;
@@ -211,7 +217,8 @@ button {
   left: 50%;
   top: 50%;
   color: red;
-  font-size: 5vw; overflow: hidden;
+  font-size: 5vw;
+  overflow: hidden;
 }
 
 .drink {
@@ -231,7 +238,6 @@ button {
   margin-right: 25%;
   background-color: white;
   border-radius: 10px;
-
 }
 
 /* ----------------Tiles Class ------------ */
@@ -243,7 +249,6 @@ button {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
-
 }
 #shotglass {
   height: 30vh;
@@ -256,18 +261,29 @@ button {
   margin-right: auto;
   width: 8em;
   margin-top: 18%;
+  font-size: 25px;
+  text-align: center;
 }
-#signupbutton, #loginbutton, #email, #password, #agever {
+#signupbutton,
+#loginbutton,
+#email,
+#password,
+#agever {
   margin-top: 1em;
   width: 120%;
 }
-.form {
-width: 100%;
- padding: 12px 20px;
- margin: 8px 0;
- box-sizing: border-box;
+#radio {
+  color: black;
+  margin-top: 1em;
+  font-size: 22px;
 }
 
+.form {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
 
 /*
 .gameTop{
