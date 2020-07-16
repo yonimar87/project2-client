@@ -18,6 +18,15 @@ class Login extends Component{
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
       console.log(u);
     }).catch((err)=>{
+      if (err.code === "auth/invalid-email") {
+        alert("Please use a viable email address")
+      } else if
+        (err.code === "auth/wrong-password") {
+        alert("Password incorrect please try again")
+      } else if
+        (err.code === "auth/user-not-found") {
+        alert("Please sign up first")
+      }
       console.log(err);
     })
   }
@@ -26,8 +35,16 @@ class Login extends Component{
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
       console.log(u);
     }).catch((err)=>{
+      if (err.code === "auth/email-already-in-use") {
+        alert(err.message)
+      } else if
+        (err.code === "auth/weak-password") {
+        alert("Password needs to be a minimum of 6 characters")
+      } else if
+        (err.code === "auth/invalid-email") {
+        alert("Please use a viable email address")
+      }
       console.log(err);
-      alert("Sorry a username with that email address is already registered")
     })
   }
   handleChange(e) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import shotglass from './images/shotglass3.png'
+
 class Game extends Component {
   constructor(props) {
     super(props)
@@ -9,8 +10,8 @@ class Game extends Component {
       displayWinner : false,
       turnCounter: 0,
       tilesSize: 7,
-      marker: 1,
-      tiles: [false, false,false,true,false,false, false],
+      marker: 3,
+      tiles: [false, false,false,true,false,false,false],
       player1Wins: 0,
       player2Wins: 0
     }
@@ -24,7 +25,7 @@ class Game extends Component {
     this.setState({result: ''});
     setTimeout( () => {
       let tossOutcome = '';
-      if (Math.random() < 0.7) {
+      if (Math.random() < 0.5) {
         tossOutcome = "heads";
         //this.setState({ result: "heads" }, this.buildArray);
         console.log(tossOutcome);
@@ -69,7 +70,6 @@ class Game extends Component {
           this.setState({displayWinner: true, player1Wins: tplayer1wins, player2Wins: tplayer2wins})
         }, 3000)
       }    console.log(this.state.player1Wins, this.state.player2Wins);
-
   }
 
   generateTiles() {
@@ -89,20 +89,20 @@ class Game extends Component {
   }
 
   _handleClick(event) {
-    this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
+    this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', displayWinner: false, tiles: [false, false,false,true,false,false, false]})
   }
 
   render() {
     return (
       <div className="gamePage">
         <div className="p1">
-          <h1>Player 1</h1>
+          <h1>Player 1: {this.state.player1Wins}</h1>
         </div>
         <div className="flip">
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
         </div>
         <div className="p2">
-          <h1>Player 2</h1>
+          <h1>Player 2: {this.state.player2Wins}</h1>
         </div>
         <div className="gameBottom">
             <TileSet tiles={this.state.tiles} />
@@ -110,13 +110,12 @@ class Game extends Component {
         <div className="tilesParent">
           { /* <TileSet /> */ }
         </div>
-
         { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
-
       </div>
     )
   }
 }
+
 //------------child--------------------------------
 class TileSet extends Component {
   constructor(props) {
@@ -142,6 +141,7 @@ class TileSet extends Component {
     )
   }
 }
+
 //------------child--------------------------------
 class Coinflip extends React.Component {
   render() {
@@ -158,14 +158,12 @@ class Coinflip extends React.Component {
     )
   }
 }
-//---------------child -----------------------
 
+//---------------child -----------------------
 const WinDiv = (props) => <div className="winner">
   <div className="drink"> {props.Winner} Drink!!</div>
   <div className="restart" onClick={props._handleClick} >Play Again</div>
   </div>
-
-
 //-----------childs-------------------------------
 class Shotglass extends Component {
   render() {
@@ -176,28 +174,25 @@ class Shotglass extends Component {
     )
   }
 }
+
  //------- child ----------------------------------
 class Counter extends Component {
-
 constructor(props) {
   super(props);
   this.state = {
     count: 0
   };
 }
-
 win = () => {
   this.setState({
     player1Wins: this.state.count + 1
   })
 };
-
 loss = () => {
   this.setState({
     count: this.state.count - 1
   })
 };
-
   render() {
     return (
     <div className="playerpoints">
@@ -211,5 +206,4 @@ loss = () => {
 }
 
 //---------child-------------------------------
-
 export default Game
