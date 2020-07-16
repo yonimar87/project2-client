@@ -11,7 +11,9 @@ class App extends Component {
     super()
     this.state = {
       data: {},
-      user : {}
+      user : {},
+      authenticated: false,
+      loading: true,
     }
   }
 

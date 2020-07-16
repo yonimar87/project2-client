@@ -41,13 +41,12 @@ class Game extends Component {
     let player1 = 6;
     let player2 = 0;
     let winner = '';
-    if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){
-        tCounter++;
-        tMarker++;
-        if (tMarker === player1) {
-          winner = "player1";
-          //alert("Congratulation Player 1 wins! ")
-        }
+    if (this.state.turnCounter % 2 === 0 && this.state.result === "heads" ){;
+      tMarker++;
+      if (tMarker === player1) {
+        winner = "player1";
+        //alert("Congratulation Player 1 wins! ")
+      }
     } else if (this.state.turnCounter % 2 !== 0 && this.state.result === "heads") {
       tMarker--;
       if (tMarker === player2) {
