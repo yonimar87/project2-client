@@ -14,7 +14,7 @@ class Game extends Component {
     this.coinToss = this.coinToss.bind(this)
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
-  /*  this._handleClick = this._handleClick.bind(this) */
+    this._handleClick = this._handleClick.bind(this)
 
   }
 
@@ -74,10 +74,9 @@ class Game extends Component {
   },2050);
   }
 
-/*  _handleClick(event) {
+_handleClick(event) {
     this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
   }
-*/
   render() {
     return (
       <div className="gamePage">
@@ -97,8 +96,7 @@ class Game extends Component {
           { /* <TileSet /> */ }
         </div>
 
-        { this.state.Winner && <WinDiv Winner={this.state.Winner} /* _handleClick={this._handleClick} */ /> }
-
+        { this.state.Winner && <WinDiv Winner={this.state.Winner}  _handleClick={this._handleClick}  /> }
       </div>
     )
   }
@@ -147,10 +145,10 @@ class Coinflip extends React.Component {
 //---------------child -----------------------
 const WinDiv = (props) => <div className="winner">
   <div> {props.Winner} Drink!!</div>
-  <button /* onClick={props._handleClick} */ >Restart</button>
+  <button onClick={props._handleClick} >Restart</button>
   </div>
 
-// class WinDiv extends React.Component {
+//  class WinDiv extends React.Component {
 //   render () {
 //     return (
 //       <div>
@@ -159,7 +157,7 @@ const WinDiv = (props) => <div className="winner">
 //     )
 //   }
 // }
-//
+
 
 //-----------childs-------------------------------
 class Shotglass extends Component {
