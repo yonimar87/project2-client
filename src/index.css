@@ -214,6 +214,10 @@ button {
   flex: 1 100%;
   /* border: 1px solid limegreen; */
   height: 32vh;
+  text-align: center;
+  font-size: 2em;
+  margin-top: .5 em;
+  color: #e62605;
 }
 
 .winner {

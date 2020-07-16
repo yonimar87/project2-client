@@ -29,12 +29,10 @@ class Game extends Component {
       let tossOutcome = ''
       if (Math.random() < 0.5) {
         tossOutcome = 'heads'
-        //this.setState({ result: "heads" }, this.buildArray);
-        console.log(tossOutcome)
+
       } else {
         tossOutcome = 'tails'
-        //this.setState({ result: "tails" }, this.buildArray);
-        console.log(tossOutcome)
+
       }
       this.setState({ result: tossOutcome }, this.buildArray)
     }, 0)
@@ -51,7 +49,6 @@ class Game extends Component {
       tMarker++
       if (tMarker === player1) {
         winner = 'player2'
-        //alert("Congratulation Player 1 wins! ")
       }
     } else if (
       this.state.turnCounter % 2 !== 0 &&
@@ -60,7 +57,6 @@ class Game extends Component {
       tMarker--
       if (tMarker === player2) {
         winner = 'player1'
-        //alert("Congratulation Player 2 wins! ")
       }
     }
     this.setState(
@@ -81,7 +77,6 @@ class Game extends Component {
         })
       }, 3000)
     }
-    console.log(this.state.player1Wins, this.state.player2Wins)
   }
   generateTiles() {
     const arrayTiles = []
@@ -93,9 +88,7 @@ class Game extends Component {
           arrayTiles.push(false)
         }
       }
-      console.log({ arrayTiles })
       this.setState({ tiles: arrayTiles })
-      //console.log(this.state.tiles)
     }, 2050)
   }
   _handleClick(event) {
@@ -115,9 +108,7 @@ class Game extends Component {
       .then(querySnapshot => {
         let data = querySnapshot.docs.map(doc => doc.data());
         let randomIndex = 'Trivia'+(Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length))+1);
-        console.log(randomIndex);
         data = data[0][randomIndex]
-        console.log('YONI LOVES' + JSON.stringify(data));
         this.setState({ users: data });
       });
   }
@@ -134,7 +125,7 @@ class Game extends Component {
         <div className="p2">
           <h1>Player 2 : {this.state.player2Wins}</h1>
         </div>
-        <div className="spacer">
+        <div className="spacer" id="spacer">
           <div> {this.state.users}
           </div>
         </div>
@@ -143,7 +134,6 @@ class Game extends Component {
         </div>
 
         <div className="tilesParent">
-          { /* <TileSet /> */ }
         </div>
 
         { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
@@ -168,9 +158,9 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div class="tile_x"></div>
+            <div className="tile_x"></div>
           ) : (
-            <div class="tile_x">
+            <div className="tile_x">
               {' '}
               <Shotglass />{' '}
             </div>
@@ -190,7 +180,7 @@ class Coinflip extends React.Component {
           id="coin"
           className={this.props.outcome}
           onClick={this.props.coinFlip}>
-          <div class="side-a"></div>
+          <div className="side-a"></div>
           <div className="side-b"></div>
         </div>
         <h1>Flip a coin</h1>

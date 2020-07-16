@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import {fire} from './config/firebase'
 import Game from './Game'
-// import Characters from './Characters'
 
 class Home extends Component {
   constructor(props) {
     super(props)
     this.logout = this.logout.bind(this)
-    console.log('dragon' + props.props)
   }
   logout() {
     fire.auth().signOut()
