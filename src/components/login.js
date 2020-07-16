@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {fire} from './config/firebase'
+import { fire } from './config/firebase'
 import homelogin from './images/logo.png'
 
 class Login extends Component {
@@ -28,9 +28,8 @@ class Login extends Component {
     fire
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then((u) => {
-        console.log(u)
-      })
+      .then((u) => {})
+
       .catch((err) => {
         if (err.code === 'auth/invalid-email') {
           alert('Please use a viable email address')
@@ -39,9 +38,9 @@ class Login extends Component {
         } else if (err.code === 'auth/user-not-found') {
           alert('Please sign up')
         }
-        console.log(err)
       })
   }
+
   signup(e) {
     e.preventDefault()
     fire
@@ -61,6 +60,7 @@ class Login extends Component {
         console.log(err)
       })
   }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
