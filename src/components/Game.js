@@ -9,8 +9,8 @@ class Game extends Component {
       displayWinner : false,
       turnCounter: 0,
       tilesSize: 7,
-      marker: 1,
-      tiles: [false, false,false,true,false,false, false],
+      marker: 3,
+      tiles: [false, false,false,true,false,false,false],
       player1Wins: 0,
       player2Wins: 0
     }
@@ -23,7 +23,7 @@ class Game extends Component {
     this.setState({result: ''});
     setTimeout( () => {
       let tossOutcome = '';
-      if (Math.random() < 0.7) {
+      if (Math.random() < 0.5) {
         tossOutcome = "heads";
         //this.setState({ result: "heads" }, this.buildArray);
         console.log(tossOutcome);
@@ -84,26 +84,31 @@ class Game extends Component {
   },2050);
   }
   _handleClick(event) {
-    this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', tiles: [false, false,false,true,false,false, false]})
+    this.setState({turnCounter: 0, marker: 3, result: '', Winner: '', displayWinner: false, tiles: [false, false,false,true,false,false, false]})
   }
   render() {
     return (
       <div className="gamePage">
         <div className="p1">
-          <h1>Player 1</h1>
+          <h1>Player 1: {this.state.player1Wins}</h1>
         </div>
         <div className="flip">
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
         </div>
         <div className="p2">
-          <h1>Player 2</h1>
+          <h1>Player 2: {this.state.player2Wins}</h1>
+        </div>
+        <div className="spacer">
         </div>
         <div className="gameBottom">
             <TileSet tiles={this.state.tiles} />
         </div>
+<<<<<<< HEAD
         <div className="tilesParent">
           { /* <TileSet /> */ }
         </div>
+=======
+>>>>>>> f4c066663b0a3a193c9a8a2f96f3395d62c5188a
         { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
       </div>
     )
@@ -155,6 +160,10 @@ const WinDiv = (props) => <div className="winner">
   <div className="drink"> {props.Winner} Drink!!</div>
   <div className="restart" onClick={props._handleClick} >Play Again</div>
   </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4c066663b0a3a193c9a8a2f96f3395d62c5188a
 //-----------childs-------------------------------
 class Shotglass extends Component {
   render() {
