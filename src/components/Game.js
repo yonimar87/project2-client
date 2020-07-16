@@ -36,6 +36,7 @@ class Game extends Component {
       this.setState({ result: tossOutcome }, this.buildArray)
     }, 0)
   }
+
   buildArray() {
     //probably the toughest function we created. This involved assigning a winner based on the counter. had to create temp variables that relate to the states of the global variables.
     //once a winner is found we then set a time out for the winning div to pop up + displaying overall counter for winner vs loser so the players know who has taken how many shots.
@@ -46,6 +47,7 @@ class Game extends Component {
     let player1 = 6
     let player2 = 0
     let winner = ''
+
     if (this.state.turnCounter % 2 === 0 && this.state.result === 'heads') {
       tMarker++
       if (tMarker === player1) {
@@ -212,10 +214,10 @@ class Shotglass extends Component {
   render() {
     return (
       <div>
-        <img id="shotglass" src={shotglass} />
+        <img id="shotglass" src={shotglass} alt="" />
       </div>
     )
   }
 }
-//---------child-------------------------------
+
 export default Game

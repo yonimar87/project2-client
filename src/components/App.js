@@ -21,7 +21,6 @@ class App extends Component {
       .database()
       .ref('test')
       .on('value', (data) => {
-        console.log(data.val())
         this.setState({ data: data.val() })
       })
   }
@@ -39,7 +38,6 @@ class App extends Component {
       } else {
         this.setState({ user: null })
       }
-      console.log('dragon ' + user)
     })
   }
 
@@ -59,7 +57,7 @@ class Background extends Component {
   render() {
     return (
       <div>
-        <img id="background" src={background} />
+        <img id="background" src={background} alt="" />
       </div>
     )
   }

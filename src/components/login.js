@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { fire } from './config/firebase'
-import homelogin from './images/logo.png'
 
 class Login extends Component {
   constructor(props) {
@@ -111,23 +110,4 @@ class Login extends Component {
   }
 }
 
-class Footer extends Component {
-  render() {
-    return (
-      <div>
-        <h2> Godpeed games discourages drinking </h2>
-      </div>
-    )
-  }
-}
-
-class Homelogin extends Component {
-  render() {
-    return (
-      <div>
-        <img id="homelogin" src={homelogin} />
-      </div>
-    )
-  }
-}
 export default Login
