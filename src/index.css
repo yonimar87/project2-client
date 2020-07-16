@@ -11,7 +11,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: red; /*#EEE9E5; */
+  color: #e62605;
 }
 
 img,
@@ -156,9 +156,17 @@ button {
   padding: 10px;
 }
 .tile_x {
-  background-image: url("images/coaster.png");
-  border-bottom: 1px solid red;
+  /* border: 1px solid red; */
   width: 16%;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  background-image: url("./components/images/coaster1.png");
+  background-repeat: no-repeat;
+  background-position-y: 90%;
+  background-size: 100%;
+  margin-left: .5em;
+  margin-right: .5em;
 }
 
 /* -------------------------- Game Page Divs -------------------------*/
@@ -167,6 +175,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+
   /* border: 1px solid red; */
 }
 
@@ -177,7 +186,11 @@ button {
   /* justify-content: center; */
   /* border: 1px solid red; */
   text-align: center;
-  font-size: 24px;
+  font-size: 70px;
+  text-shadow: 0px 3px 0px #b2a98f,
+               0px 14px 10px rgba(0,0,0,0.15),
+               0px 24px 2px rgba(0,0,0,0.1),
+               0px 34px 30px rgba(0,0,0,0.1);
 }
 
 .flip {
@@ -186,6 +199,11 @@ button {
   justify-content: center;
   /* border: 1px solid red; */
   text-align: center;
+  font-size: 1.2em;
+  text-shadow: 0px 3px 0px #b2a98f,
+               0px 14px 10px rgba(0,0,0,0.15),
+               0px 24px 2px rgba(0,0,0,0.1),
+               0px 34px 30px rgba(0,0,0,0.1);
 }
 
 .gameBottom {
@@ -197,6 +215,10 @@ button {
   flex: 1 100%;
   /* border: 1px solid limegreen; */
   height: 32vh;
+  text-align: center;
+  font-size: 2em;
+  margin-top: .5 em;
+  color: #e62605;
 }
 
 .winner {
@@ -285,6 +307,11 @@ button {
   box-sizing: border-box;
 }
 
+.p2, .p1, #flipheader {
+  background: #F8F8FF;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
 /*
 .gameTop{
   display: flex;

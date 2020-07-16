@@ -114,9 +114,9 @@ class Game extends Component {
       .get()
       .then(querySnapshot => {
         let data = querySnapshot.docs.map(doc => doc.data());
-        // let randomIndex = 'Trivia'+(Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length))+1);
-        // console.log(randomIndex);
-        // data = data[0][randomIndex]
+        let randomIndex = 'Trivia'+(Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length))+1);
+        console.log(randomIndex);
+        data = data[0][randomIndex]
         console.log('YONI LOVES' + JSON.stringify(data));
         this.setState({ users: data });
       });
@@ -205,6 +205,7 @@ const WinDiv = (props) => (
       Play Again
     </div>
   </div>
+
 )
 //-----------childs-------------------------------
 class Shotglass extends Component {
