@@ -11,15 +11,16 @@ class Login extends Component {
     this.checkAge = this.checkAge.bind(this)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      checkBox: false
     }
   }
   checkAge() {
-    this.setState({ radio: !this.state.radio })
+    this.setState({ checkBox: !this.state.checkBox })
   }
   login(e) {
     e.preventDefault()
-    if (this.state.radio === false) {
+    if (this.state.checkBox === false) {
       alert('you must be over 18')
       return
     }
