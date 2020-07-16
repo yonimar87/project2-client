@@ -150,8 +150,17 @@ button {
   padding: 10px;
 }
 .tile_x {
-  border-bottom: 1px solid red;
+  /* border: 1px solid red; */
   width: 16%;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  background-image: url("./components/images/coaster1.png");
+  background-repeat: no-repeat;
+  background-position-y: 90%;
+  background-size: 100%;
+  margin-left: .5em;
+  margin-right: .5em;
 }
 
 /* -------------------------- Game Page Divs -------------------------*/

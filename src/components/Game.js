@@ -104,6 +104,7 @@ class Game extends Component {
         <div className="gameBottom">
             <TileSet tiles={this.state.tiles} />
         </div>
+
         { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
       </div>
     )
@@ -122,9 +123,9 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div class="tile_x">Closer..</div>
+            <div class="tile_x"></div>
           ) : (
-            <div id="tile4">
+            <div class="tile_x">
               {' '}
               <Shotglass />{' '}
             </div>
