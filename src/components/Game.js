@@ -126,13 +126,13 @@ class Game extends Component {
     return (
       <div className="gamePage">
         <div className="p1">
-          <h1>Player 1: {this.state.player1Wins}</h1>
+          <h1>Player 1 : {this.state.player1Wins}</h1>
         </div>
         <div className="flip">
           <Coinflip coinFlip={this.coinToss} outcome={this.state.result} />
         </div>
         <div className="p2">
-          <h1>Player 2: {this.state.player2Wins}</h1>
+          <h1>Player 2 : {this.state.player2Wins}</h1>
         </div>
         <div className="spacer">
           <div> {this.state.users}
@@ -141,10 +141,7 @@ class Game extends Component {
         <div className="gameBottom">
           <TileSet tiles={this.state.tiles} />
         </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 546ab1cf59932f226cb383ab7f8b08d430ecf63e
         <div className="tilesParent">
           { /* <TileSet /> */ }
         </div>
