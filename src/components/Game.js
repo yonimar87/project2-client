@@ -103,12 +103,11 @@ class Game extends Component {
         <div className="gameBottom">
             <TileSet tiles={this.state.tiles} />
         </div>
-<<<<<<< HEAD
+
         <div className="tilesParent">
           { /* <TileSet /> */ }
         </div>
-=======
->>>>>>> f4c066663b0a3a193c9a8a2f96f3395d62c5188a
+
         { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
       </div>
     )
@@ -160,10 +159,9 @@ const WinDiv = (props) => <div className="winner">
   <div className="drink"> {props.Winner} Drink!!</div>
   <div className="restart" onClick={props._handleClick} >Play Again</div>
   </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> f4c066663b0a3a193c9a8a2f96f3395d62c5188a
+
+
 //-----------childs-------------------------------
 class Shotglass extends Component {
   render() {
