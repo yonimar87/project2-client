@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import shotglass from './images/shotglass3.png'
+import {fire, db} from './config/firebase'
 
 class Game extends Component {
   constructor(props) {
@@ -13,12 +14,14 @@ class Game extends Component {
       marker: 3,
       tiles: [false, false, false, true, false, false, false],
       player1Wins: 0,
-      player2Wins: 0
+      player2Wins: 0,
+      users: ''
     }
     this.coinToss = this.coinToss.bind(this)
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
     this._handleClick = this._handleClick.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
   }
   coinToss() {
     this.setState({ result: '' })
@@ -105,6 +108,20 @@ class Game extends Component {
       tiles: [false, false, false, true, false, false, false]
     })
   }
+
+  componentDidMount() {
+    db.collection("trivia")
+      .get()
+      .then(querySnapshot => {
+        let data = querySnapshot.docs.map(doc => doc.data());
+        let randomIndex = 'Trivia'+(Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length))+1);
+        console.log(randomIndex);
+        data = data[0][randomIndex]
+        console.log('YONI LOVES' + JSON.stringify(data));
+        this.setState({ users: data });
+      });
+  }
+
   render() {
     return (
       <div className="gamePage">
@@ -117,11 +134,17 @@ class Game extends Component {
         <div className="p2">
           <h1>Player 2: {this.state.player2Wins}</h1>
         </div>
-        <div className="spacer"></div>
+        <div className="spacer">
+          <div> {this.state.users}
+          </div>
+        </div>
         <div className="gameBottom">
           <TileSet tiles={this.state.tiles} />
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 546ab1cf59932f226cb383ab7f8b08d430ecf63e
         <div className="tilesParent">
           { /* <TileSet /> */ }
         </div>
@@ -148,9 +171,9 @@ class TileSet extends Component {
       <div className="tiles">
         {this.props.tiles.map((tile) => {
           return !tile ? (
-            <div class="tile_x">Closer..</div>
+            <div class="tile_x"></div>
           ) : (
-            <div id="tile4">
+            <div class="tile_x">
               {' '}
               <Shotglass />{' '}
             </div>
@@ -198,34 +221,5 @@ class Shotglass extends Component {
   }
 }
 
-//------- child ----------------------------------
-class Counter extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      count: 0
-    }
-  }
-  win = () => {
-    this.setState({
-      player1Wins: this.state.count + 1
-    })
-  }
-  loss = () => {
-    this.setState({
-      count: this.state.count - 1
-    })
-  }
-  render() {
-    return (
-      <div className="playerpoints">
-        <h1 className="playername"> Player {} </h1>
-        <p className="pointstotal"> Total Points: {this.state.count} </p>
-        <button onClick={this.win}> Player 1 wins: </button>
-        <button onClick={this.loss}> Player 2 wins: </button>
-      </div>
-    )
-  }
-}
 //---------child-------------------------------
 export default Game
