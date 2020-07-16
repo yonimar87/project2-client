@@ -183,7 +183,7 @@ class Coinflip extends React.Component {
           <div className="side-a"></div>
           <div className="side-b"></div>
         </div>
-        <h1>Flip a coin</h1>
+        <h1 id="flipheader">Flip a coin</h1>
       </div>
     )
   }

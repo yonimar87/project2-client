@@ -175,6 +175,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+
   /* border: 1px solid red; */
 }
 
@@ -306,6 +307,11 @@ button {
   box-sizing: border-box;
 }
 
+.p2, .p1, #flipheader {
+  background: #F8F8FF;
+  border-radius: 50%;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
 /*
 .gameTop{
   display: flex;
