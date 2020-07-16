@@ -156,6 +156,7 @@ button {
   padding: 10px;
 }
 .tile_x {
+  background-image: url("images/coaster.png");
   border-bottom: 1px solid red;
   width: 16%;
 }

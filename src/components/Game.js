@@ -141,6 +141,16 @@ class Game extends Component {
         <div className="gameBottom">
           <TileSet tiles={this.state.tiles} />
         </div>
+<<<<<<< HEAD
+
+        <div className="tilesParent">
+          { /* <TileSet /> */ }
+        </div>
+
+        { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
+
+=======
+>>>>>>> c99c8790930fff87c7be487dd937c2f84e7407aa
         {this.state.displayWinner && (
           <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} />
         )}
@@ -200,6 +210,10 @@ const WinDiv = (props) => (
       Play Again
     </div>
   </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> c99c8790930fff87c7be487dd937c2f84e7407aa
 )
 //-----------childs-------------------------------
 class Shotglass extends Component {
@@ -211,6 +225,7 @@ class Shotglass extends Component {
     )
   }
 }
+
 //------- child ----------------------------------
 class Counter extends Component {
   constructor(props) {
