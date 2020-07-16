@@ -11,8 +11,7 @@ class Login extends Component {
     this.checkAge = this.checkAge.bind(this)
     this.state = {
       email: '',
-      password: '',
-      radio: false
+      password: ''
     }
   }
   checkAge() {
