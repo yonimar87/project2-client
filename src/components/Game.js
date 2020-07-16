@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import shotglass from './images/shotglass3.png'
-import {fire, db} from './config/firebase'
+import { fire, db } from './config/firebase'
 class Game extends Component {
   constructor(props) {
     super(props)
@@ -22,7 +22,9 @@ class Game extends Component {
     this._handleClick = this._handleClick.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
   }
-  coinToss() { //controls the heads and tails movement.
+
+  coinToss() {
+    //controls the heads and tails movement.
     this.setState({ result: '' })
     setTimeout(() => {
       let tossOutcome = ''
@@ -34,7 +36,8 @@ class Game extends Component {
       this.setState({ result: tossOutcome }, this.buildArray)
     }, 0)
   }
-  buildArray() {//probably the toughest function we created. This involved assigning a winner based on the counter. had to create temp variables that relate to the states of the global variables.
+  buildArray() {
+    //probably the toughest function we created. This involved assigning a winner based on the counter. had to create temp variables that relate to the states of the global variables.
     //once a winner is found we then set a time out for the winning div to pop up + displaying overall counter for winner vs loser so the players know who has taken how many shots.
     let tCounter = this.state.turnCounter
     let tMarker = this.state.marker
@@ -57,16 +60,19 @@ class Game extends Component {
         winner = 'player1'
       }
     }
+
     this.setState(
       { marker: tMarker, turnCounter: tCounter + 1, Winner: winner },
       this.generateTiles
     )
+
     if (winner) {
       if (winner === 'player2') {
         tplayer1wins++
       } else {
         tplayer2wins++
       }
+
       setTimeout(() => {
         this.setState({
           displayWinner: true,
@@ -76,7 +82,9 @@ class Game extends Component {
       }, 3000)
     }
   }
-  generateTiles() { //generating the right amount of tiles
+
+  generateTiles() {
+    //generating the right amount of tiles
     const arrayTiles = []
     setTimeout(() => {
       for (let i = 0; i < this.state.tilesSize; i++) {
@@ -89,6 +97,7 @@ class Game extends Component {
       this.setState({ tiles: arrayTiles })
     }, 2050)
   }
+
   _handleClick(event) {
     this.setState({
       turnCounter: 0,
@@ -99,16 +108,22 @@ class Game extends Component {
       tiles: [false, false, false, true, false, false, false]
     })
   }
-  componentDidMount() { // this is connected to our database on Firebase. We have hard coded a seeding data that's fed into this function.
-    db.collection("trivia")
+
+  componentDidMount() {
+    // this is connected to our database on Firebase. We have hard coded a seeding data that's fed into this function.
+    db.collection('trivia')
       .get()
-      .then(querySnapshot => {
-        let data = querySnapshot.docs.map(doc => doc.data());
-        let randomIndex = 'Trivia'+(Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length))+1); //producing random facts based on their name. Each fact is named Trivia(number) and the Math.random + floor finds it up to the length of the object.
+      .then((querySnapshot) => {
+        let data = querySnapshot.docs.map((doc) => doc.data())
+        let randomIndex =
+          'Trivia' +
+          (Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length)) +
+            1) //producing random facts based on their name. Each fact is named Trivia(number) and the Math.random + floor finds it up to the length of the object.
         data = data[0][randomIndex]
-        this.setState({ users: data });
-      });
+        this.setState({ users: data })
+      })
   }
+
   render() {
     return (
       <div className="gamePage">
@@ -122,15 +137,15 @@ class Game extends Component {
           <h1>Player 2 : {this.state.player2Wins}</h1>
         </div>
         <div className="spacer" id="spacer">
-          <div> {this.state.users}
-          </div>
+          <div> {this.state.users}</div>
         </div>
         <div className="gameBottom">
           <TileSet tiles={this.state.tiles} />
         </div>
-        <div className="tilesParent">
-        </div>
-        { this.state.displayWinner && <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} /> }
+        <div className="tilesParent"></div>
+        {this.state.displayWinner && (
+          <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} />
+        )}
         {this.state.displayWinner && (
           <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} />
         )}
@@ -146,6 +161,7 @@ class TileSet extends Component {
       tiles: this.props.tiles
     }
   }
+
   render() {
     return (
       <div className="tiles">
@@ -180,6 +196,7 @@ class Coinflip extends React.Component {
     )
   }
 }
+
 //---------------child -----------------------
 const WinDiv = (props) => (
   <div className="winner">
@@ -189,6 +206,7 @@ const WinDiv = (props) => (
     </div>
   </div>
 )
+
 //-----------childs-------------------------------
 class Shotglass extends Component {
   render() {

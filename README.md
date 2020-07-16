@@ -1,6 +1,9 @@
 #Project background
 This project was the brainchild of 4 aspiring web developers who were lockdown due to COVID and needed a way to pass the time and enjoy spending quality social-distanced time together.
 
+Deployment website:
+https://drinking-game-663f5.web.app/
+
 # Project Overview
 
 This section covers all necessary technologies used for the program, as well as a "how to play" guide.
@@ -13,10 +16,10 @@ This section covers all necessary technologies used for the program, as well as 
 * Once the coin moves to either div 1 or div 7, the appropriate player wins
 * Congratulations losing player! Have a drink :)
 
-## Technologies used
+## Technologies used 
 
 * React.js as the front end library for JavaScript.
-* Firebase as a backend database. This is used for user authentication + Deployment + Trivia in the firestore. 
+* Firebase as a backend database. This is used for user authentication + Deployment + Trivia in the firestore.
 
 ### To Do
 1. Main goal is to get a multiplayer game running through Firebase. This can be achieved through coding rooms where players can create a room, then a unique code is shared with a friend.
