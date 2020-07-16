@@ -14,9 +14,11 @@ class Login extends Component {
       checkBox: false
     }
   }
+
   checkAge() {
     this.setState({ checkBox: !this.state.checkBox })
   }
+
   login(e) {
     e.preventDefault()
     if (this.state.checkBox === false) {

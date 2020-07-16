@@ -155,6 +155,7 @@ class Game extends Component {
     )
   }
 }
+
 //------------child--------------------------------
 class TileSet extends Component {
   constructor(props) {
@@ -181,6 +182,7 @@ class TileSet extends Component {
     )
   }
 }
+
 //------------child--------------------------------
 class Coinflip extends React.Component {
   render() {
