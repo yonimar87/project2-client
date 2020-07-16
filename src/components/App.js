@@ -53,7 +53,7 @@ class App extends Component {
   }
 }
 
-class Background extends Component {{/*turns out you need to have classes for images from what we found. you can import them as per above*/}
+class Background extends Component {//turns out you need to have classes for images from what we found. you can import them as per above
   render() {
     return <div>
       <img id="background" src={background}/>
