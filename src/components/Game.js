@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import shotglass from './images/shotglass3.png'
+import {fire, db} from './config/firebase'
 
 class Game extends Component {
   constructor(props) {
@@ -13,12 +14,14 @@ class Game extends Component {
       marker: 3,
       tiles: [false, false, false, true, false, false, false],
       player1Wins: 0,
-      player2Wins: 0
+      player2Wins: 0,
+      users: ''
     }
     this.coinToss = this.coinToss.bind(this)
     this.buildArray = this.buildArray.bind(this)
     this.generateTiles = this.generateTiles.bind(this)
     this._handleClick = this._handleClick.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
   }
   coinToss() {
     this.setState({ result: '' })
@@ -105,6 +108,20 @@ class Game extends Component {
       tiles: [false, false, false, true, false, false, false]
     })
   }
+
+  componentDidMount() {
+    db.collection("trivia")
+      .get()
+      .then(querySnapshot => {
+        let data = querySnapshot.docs.map(doc => doc.data());
+        let randomIndex = 'Trivia'+(Math.floor(Math.random() * Math.floor(Object.keys(data[0]).length))+1);
+        console.log(randomIndex);
+        data = data[0][randomIndex]
+        console.log('YONI LOVES' + JSON.stringify(data));
+        this.setState({ users: data });
+      });
+  }
+
   render() {
     return (
       <div className="gamePage">
@@ -117,7 +134,10 @@ class Game extends Component {
         <div className="p2">
           <h1>Player 2: {this.state.player2Wins}</h1>
         </div>
-        <div className="spacer"></div>
+        <div className="spacer">
+          <div> {this.state.users}
+          </div>
+        </div>
         <div className="gameBottom">
           <TileSet tiles={this.state.tiles} />
         </div>

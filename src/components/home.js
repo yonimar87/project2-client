@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import fire from './config/firebase'
+import {fire} from './config/firebase'
 import Game from './Game'
 // import Characters from './Characters'
 
