@@ -96,7 +96,8 @@ class Game extends Component {
       result: '',
       Winner: '',
       displayWinner: false,
-      tiles: [false, false, false, true, false, false, false]
+      tiles: [false, false, false, true, false, false, false],
+      user: ''
     })
   }
   componentDidMount() { // this is connected to our database on Firebase. We have hard coded a seeding data that's fed into this function.
