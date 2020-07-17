@@ -97,7 +97,7 @@ class Login extends Component {
               required
               onChange={this.checkAge}
             />
-            click here if 18 +
+            <div id="radiotext"> click here if 18 + </div>
           </div>
 
           <button onClick={this.login} id="loginbutton">
@@ -106,7 +106,7 @@ class Login extends Component {
           <button onClick={this.signup} id="signupbutton">
             SignUp
           </button>
-        </form>
+        </form> 
       </div>
     )
   }

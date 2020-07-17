@@ -104,11 +104,12 @@ class Game extends Component {
     this.setState({
       turnCounter: 0,
       marker: 3,
+      users: '',
       result: '',
       Winner: '',
       displayWinner: false,
       tiles: [false, false, false, true, false, false, false]
-    })
+    }, this.componentDidMount)
   }
 
   componentDidMount() {
@@ -138,16 +139,12 @@ class Game extends Component {
         <div className="p2">
           <h1>Player 2 : {this.state.player2Wins}</h1>
         </div>
-        <div className="spacer" id="spacer">
-          <div> {this.state.users}</div>
+        <div className="spacer">
+          {this.state.users}
         </div>
         <div className="gameBottom">
           <TileSet tiles={this.state.tiles} />
         </div>
-        <div className="tilesParent"></div>
-        {this.state.displayWinner && (
-          <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} />
-        )}
         {this.state.displayWinner && (
           <WinDiv Winner={this.state.Winner} _handleClick={this._handleClick} />
         )}
