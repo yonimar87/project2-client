@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import app from 'firebase/app'
-import { fire, db } from './config/firebase' //thhis gets information from firebase.js which has both db and fire defined.
+import { fire } from './config/firebase' //thhis gets information from firebase.js which has both db and fire defined.
 import Login from './login'
 import Home from './home'
 import background from './images/bar.jpeg'
