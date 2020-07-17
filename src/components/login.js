@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {fire} from './config/firebase'
-import homelogin from './images/logo.png'
+import { fire } from './config/firebase'
 
 class Login extends Component {
   constructor(props) {
@@ -15,9 +14,11 @@ class Login extends Component {
       checkBox: false
     }
   }
+
   checkAge() {
     this.setState({ checkBox: !this.state.checkBox })
   }
+
   login(e) {
     e.preventDefault()
     if (this.state.checkBox === false) {
@@ -28,9 +29,8 @@ class Login extends Component {
     fire
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then((u) => {
-        console.log(u)
-      })
+      .then((u) => {})
+
       .catch((err) => {
         if (err.code === 'auth/invalid-email') {
           alert('Please use a viable email address')
@@ -39,9 +39,9 @@ class Login extends Component {
         } else if (err.code === 'auth/user-not-found') {
           alert('Please sign up')
         }
-        console.log(err)
       })
   }
+
   signup(e) {
     e.preventDefault()
     fire
@@ -61,6 +61,7 @@ class Login extends Component {
         console.log(err)
       })
   }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -96,7 +97,7 @@ class Login extends Component {
               required
               onChange={this.checkAge}
             />
-            click here if 18 +
+            <div id="radiotext"> click here if 18 + </div>
           </div>
 
           <button onClick={this.login} id="loginbutton">
@@ -105,29 +106,10 @@ class Login extends Component {
           <button onClick={this.signup} id="signupbutton">
             SignUp
           </button>
-        </form>
+        </form> 
       </div>
     )
   }
 }
 
-class Footer extends Component {
-  render() {
-    return (
-      <div>
-        <h2> Godpeed games discourages drinking </h2>
-      </div>
-    )
-  }
-}
-
-class Homelogin extends Component {
-  render() {
-    return (
-      <div>
-        <img id="homelogin" src={homelogin} />
-      </div>
-    )
-  }
-}
 export default Login
